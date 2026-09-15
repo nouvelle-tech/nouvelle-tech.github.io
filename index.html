@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS//IA — Tech & Future</title>
+    <title>NOUVELLE TECH — Actualités Tech & IA</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -17,179 +17,56 @@
             --border-glow: rgba(0, 240, 255, 0.25);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Rajdhani', sans-serif; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 10%; border-bottom: 1px solid var(--border-glow); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; }
+        .logo { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 800; color: #fff; text-shadow: 0 0 12px var(--electric-blue); text-decoration: none; letter-spacing: 1px; }
+        .logo span { color: var(--neon-cyan); }
 
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            font-family: 'Rajdhani', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
+        main { flex: 1; max-width: 1200px; width: 90%; margin: 40px auto; }
+        .hero { text-align: center; margin-bottom: 50px; }
+        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 15px; color: #fff; text-shadow: 0 0 15px var(--glow-blue); }
+        .hero p { color: var(--text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(0, 136, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
-                linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)),
-                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px),
-                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px);
-            z-index: -1;
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: var(--card-bg); border: 1px solid var(--border-glow); border-radius: 12px; padding: 30px; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 0 20px var(--glow-blue); border-color: var(--neon-cyan); }
+        
+        .tag { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--neon-cyan); background: rgba(0, 136, 255, 0.15); border: 1px solid var(--electric-blue); padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 15px; width: fit-content; }
+        .card h2 { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff; line-height: 1.4; }
+        .card p { color: var(--text-muted); margin-bottom: 25px; font-size: 1.05rem; }
+        
+        .read-more { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--neon-cyan); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .read-more:hover { color: #fff; text-shadow: 0 0 8px var(--neon-cyan); }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            border-bottom: 1px solid var(--border-glow);
-            backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
-        }
-
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #fff;
-            text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan);
-            letter-spacing: 2px;
-        }
-
-        .status-badge {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
-            color: var(--neon-cyan);
-            border: 1px solid var(--neon-cyan);
-            padding: 5px 14px;
-            border-radius: 20px;
-            box-shadow: 0 0 10px var(--glow-blue);
-            background: rgba(0, 240, 255, 0.05);
-        }
-
-        .main-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        .hero {
-            background: var(--card-bg);
-            border: 1px solid var(--border-glow);
-            border-left: 4px solid var(--neon-cyan);
-            padding: 40px;
-            border-radius: 12px;
-            margin-bottom: 60px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 240, 255, 0.05);
-            backdrop-filter: blur(8px);
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.3rem;
-            color: #fff;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 span {
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--glow-blue);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 35px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: #fff;
-        }
-
-        .section-title::after {
-            content: "";
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, var(--electric-blue), transparent);
-        }
-
-        .empty-state {
-            background: var(--card-bg);
-            border: 1px dashed var(--border-glow);
-            border-radius: 10px;
-            padding: 50px 20px;
-            text-align: center;
-            backdrop-filter: blur(6px);
-        }
-
-        .empty-state h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--neon-cyan);
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-
-        .empty-state p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid rgba(0, 240, 255, 0.1);
-            color: var(--text-muted);
-            margin-top: 80px;
-            font-size: 0.95rem;
-        }
+        footer { text-align: center; padding: 30px 0; color: var(--text-muted); border-top: 1px solid var(--border-glow); font-size: 0.95rem; margin-top: auto; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">NEXUS//IA</div>
-        <div class="status-badge">SYS_ONLINE 🟢</div>
+        <a href="index.html" class="logo">NOUVELLE<span>TECH</span></a>
     </header>
 
-    <div class="main-container">
-        <!-- Section Présentation -->
-        <section class="hero">
-            <h1>Bienvenue sur <span>NEXUS//IA</span></h1>
-            <p>
-                Passionné par l'Intelligence Artificielle et l'innovation technologique. Je décrypte ici les dernières avancées en matière d'IA, de domotique, de santé et de mobilité du futur.
-            </p>
-        </section>
+    <main>
+        <div class="hero">
+            <h1>L'actualité de la Tech et de l'IA</h1>
+            <p>Décryptage des innovations et de leur impact dans notre quotidien.</p>
+        </div>
 
-        <!-- Section Articles (Vide pour l'instant) -->
-        <section>
-            <h2 class="section-title">Publications Récentes</h2>
-            
-            <div class="empty-state">
-                <h3>CHARGEMENT DES DONNÉES EN COURS...</h3>
-                <p>Les premiers articles vérifiés et rédigés arrivent très bientôt sur la plateforme.</p>
+        <div class="grid">
+            <div class="card">
+                <span class="tag">INTELLIGENCE ARTIFICIELLE</span>
+                <h2>L'IA au quotidien : un coup de pouce indispensable, mais c'est l'humain qui garde les commandes</h2>
+                <p>L'IA s'installe partout dans nos vies. Découvrez pourquoi elle devient un assistant incontournable tout en laissant la main à la réflexion humaine.</p>
+                <a href="article-1.html" class="read-more">Lire l'article &rarr;</a>
             </div>
-        </section>
-    </div>
+        </div>
+    </main>
 
     <footer>
-        <p>&copy; 2026 NEXUS//IA — Propulsion Blue-Tech & GitHub Pages</p>
+        <p>&copy; 2026 NOUVELLE TECH — Tous droits réservés</p>
     </footer>
 
 </body>
