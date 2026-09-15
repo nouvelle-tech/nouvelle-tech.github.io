@@ -32,7 +32,6 @@
             min-height: 100vh;
         }
 
-        /* Arrière-plan dynamique avec grille et orbes lumineux */
         body::before {
             content: "";
             position: fixed;
@@ -85,7 +84,6 @@
             padding: 50px 20px;
         }
 
-        /* Section Présentation */
         .hero {
             background: var(--card-bg);
             border: 1px solid var(--border-glow);
@@ -115,7 +113,6 @@
             font-weight: 500;
         }
 
-        /* Titres */
         .section-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
@@ -133,72 +130,25 @@
             background: linear-gradient(90deg, var(--electric-blue), transparent);
         }
 
-        /* Grille d'articles */
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .article-card {
+        .empty-state {
             background: var(--card-bg);
-            border: 1px solid rgba(0, 240, 255, 0.15);
+            border: 1px dashed var(--border-glow);
             border-radius: 10px;
-            padding: 28px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            padding: 50px 20px;
+            text-align: center;
             backdrop-filter: blur(6px);
         }
 
-        .article-card:hover {
-            transform: translateY(-7px);
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 25px rgba(0, 136, 255, 0.3);
-        }
-
-        .tag {
-            align-self: flex-start;
+        .empty-state h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
             color: var(--neon-cyan);
-            background: rgba(0, 136, 255, 0.15);
-            border: 1px solid var(--electric-blue);
-            padding: 3px 10px;
-            border-radius: 4px;
-            margin-bottom: 18px;
-            letter-spacing: 1px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
         }
 
-        .article-card h2 {
-            font-size: 1.4rem;
-            color: #fff;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .article-card p {
+        .empty-state p {
             color: var(--text-muted);
-            font-size: 1.05rem;
-            margin-bottom: 22px;
-        }
-
-        .read-more {
-            text-decoration: none;
-            color: var(--neon-cyan);
-            font-weight: 700;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .read-more:hover {
-            text-shadow: 0 0 10px var(--neon-cyan);
-            transform: translateX(5px);
+            font-size: 1.1rem;
         }
 
         footer {
@@ -227,30 +177,13 @@
             </p>
         </section>
 
-        <!-- Section Articles -->
+        <!-- Section Articles (Vide pour l'instant) -->
         <section>
             <h2 class="section-title">Publications Récentes</h2>
             
-            <div class="articles-grid">
-                
-                <article class="article-card">
-                    <div>
-                        <span class="tag">AUTOMOBILE & IA</span>
-                        <h2>L'IA au cœur des véhicules autonomes</h2>
-                        <p>Analyse des derniers systèmes embarqués capables d'anticiper le danger avant le conducteur.</p>
-                    </div>
-                    <a href="article-1.html" class="read-more">Lire l'article &rarr;</a>
-                </article>
-
-                <article class="article-card">
-                    <div>
-                        <span class="tag">SANTÉ & TECH</span>
-                        <h2>Diagnostics prédictifs : L'IA prévient les maladies</h2>
-                        <p>Comment les nouveaux algorithmes analysent vos biomarqueurs avant l'apparition des symptômes.</p>
-                    </div>
-                    <a href="article-2.html" class="read-more">Lire l'article &rarr;</a>
-                </article>
-
+            <div class="empty-state">
+                <h3>CHARGEMENT DES DONNÉES EN COURS...</h3>
+                <p>Les premiers articles vérifiés et rédigés arrivent très bientôt sur la plateforme.</p>
             </div>
         </section>
     </div>
