@@ -3,200 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS // IA – Tech & Future</title>
+    <title>NEXUS//IA — Tech & Future</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-profond: #030712;
-            --carte-bg: rgba(10, 25, 47, 0.7);
-            --bleu-electrique: #0088ff;
-            --cyan-neon: #00f0ff;
-            --bleu-lumineux: rgba(0, 136, 255, 0.4);
-            --texte-main: #f1f5f9;
-            --texte-muet: #94a3b8;
+            --bg-deep: #030712;
+            --card-bg: rgba(10, 25, 47, 0.7);
+            --electric-blue: #0088ff;
+            --neon-cyan: #00f0ff;
+            --glow-blue: rgba(0, 136, 255, 0.4);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
             --border-glow: rgba(0, 240, 255, 0.25);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            background-color: var(--bg-profond);
-            color: var(--texte-main);
+            background-color: var(--bg-deep);
+            color: var(--text-main);
             font-family: 'Rajdhani', sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 136, 255, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.06) 0%, transparent 40%);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+        }
+
+        /* Arrière-plan dynamique avec grille et orbes lumineux */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 136, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
+                linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)),
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px);
+            z-index: -1;
         }
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 8%;
+            padding: 20px 10%;
             border-bottom: 1px solid var(--border-glow);
-            background: rgba(3, 7, 18, 0.8);
             backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
         }
 
         .logo {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            color: var(--texte-main);
-            text-decoration: none;
+            color: #fff;
+            text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan);
             letter-spacing: 2px;
-            text-shadow: 0 0 10px var(--bleu-electrique);
+            text-decoration: none;
         }
 
-        .logo span { color: var(--cyan-neon); text-shadow: 0 0 10px var(--cyan-neon); }
-
-        main {
-            flex: 1;
-            max-width: 1200px;
-            width: 90%;
-            margin: 50px auto;
-        }
-
-        .hero-section {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .hero-section h1 {
+        .status-badge {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 800;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            border: 1px solid var(--neon-cyan);
+            padding: 5px 14px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px var(--glow-blue);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        /* Section Présentation */
+        .hero {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-left: 4px solid var(--neon-cyan);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 240, 255, 0.05);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.3rem;
+            color: #fff;
             margin-bottom: 15px;
-            background: linear-gradient(90deg, #fff, var(--cyan-neon));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
         }
 
-        .hero-section p {
-            color: var(--texte-muet);
-            font-size: 1.2rem;
-            letter-spacing: 0.5px;
+        .hero h1 span {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--glow-blue);
         }
 
-        .grid {
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Titres */
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #fff;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--electric-blue), transparent);
+        }
+
+        /* Grille d'articles */
+        .articles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
-        .card {
-            background: var(--carte-bg);
-            border: 1px solid var(--border-glow);
-            border-radius: 14px;
-            padding: 35px;
-            position: relative;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        .article-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 10px;
+            padding: 28px;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            backdrop-filter: blur(6px);
         }
 
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: var(--cyan-neon);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.3), inset 0 0 15px rgba(0, 240, 255, 0.1);
+        .article-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 25px rgba(0, 136, 255, 0.3);
         }
 
         .tag {
+            align-self: flex-start;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--cyan-neon);
-            background: rgba(0, 240, 255, 0.1);
-            border: 1px solid rgba(0, 240, 255, 0.3);
-            padding: 5px 12px;
-            border-radius: 6px;
-            display: inline-block;
-            margin-bottom: 20px;
+            color: var(--neon-cyan);
+            background: rgba(0, 136, 255, 0.15);
+            border: 1px solid var(--electric-blue);
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 18px;
             letter-spacing: 1px;
         }
 
-        .card h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.35rem;
-            font-weight: 600;
-            margin-bottom: 15px;
+        .article-card h2 {
+            font-size: 1.4rem;
             color: #fff;
-            line-height: 1.4;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
-        .card p {
-            color: var(--texte-muet);
+        .article-card p {
+            color: var(--text-muted);
             font-size: 1.05rem;
-            margin-bottom: 30px;
-            line-height: 1.7;
+            margin-bottom: 22px;
         }
 
         .read-more {
+            text-decoration: none;
+            color: var(--neon-cyan);
+            font-weight: 700;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.9rem;
-            color: var(--cyan-neon);
-            text-decoration: none;
-            font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: 0.3s;
-            letter-spacing: 1px;
+            transition: all 0.2s ease;
         }
 
         .read-more:hover {
-            color: #fff;
-            text-shadow: 0 0 8px var(--cyan-neon);
+            text-shadow: 0 0 10px var(--neon-cyan);
             transform: translateX(5px);
         }
 
         footer {
             text-align: center;
             padding: 40px 0;
-            color: var(--texte-muet);
-            border-top: 1px solid var(--border-glow);
-            font-size: 0.9rem;
-            background: rgba(3, 7, 18, 0.5);
-            margin-top: auto;
-            letter-spacing: 1px;
+            border-top: 1px solid rgba(0, 240, 255, 0.1);
+            color: var(--text-muted);
+            margin-top: 80px;
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">NEXUS<span>//IA</span></a>
+        <a href="index.html" class="logo">NEXUS//IA</a>
+        <div class="status-badge">SYS_ONLINE 🟢</div>
     </header>
 
-    <main>
-        <div class="hero-section">
-            <h1>L'actualité de la Tech et de l'IA</h1>
-            <p>Décryptage des innovations et de leur impact dans notre quotidien.</p>
-        </div>
+    <div class="main-container">
+        <!-- Section Présentation -->
+        <section class="hero">
+            <h1>Bienvenue sur <span>NEXUS//IA</span></h1>
+            <p>
+                Passionné par l'Intelligence Artificielle et l'innovation technologique. Je décrypte ici les dernières avancées en matière d'IA, de domotique, de santé et de mobilité du futur.
+            </p>
+        </section>
 
-        <div class="grid">
-            <div class="card">
-                <span class="tag">INTELLIGENCE ARTIFICIELLE</span>
-                <h2>L'IA au quotidien : un coup de pouce indispensable, mais c'est l'humain qui garde les commandes</h2>
-                <p>L'IA s'installe partout dans nos vies. Découvrez pourquoi elle devient un assistant incontournable tout en laissant la main à la réflexion humaine.</p>
-                <a href="article-1.html" class="read-more">Lire l'article &rarr;</a>
+        <!-- Section Articles -->
+        <section>
+            <h2 class="section-title">Publications Récentes</h2>
+            
+            <div class="articles-grid">
+                
+                <article class="article-card">
+                    <div>
+                        <span class="tag">INTELLIGENCE ARTIFICIELLE</span>
+                        <h2>L'IA au quotidien : un coup de pouce indispensable, mais c'est l'humain qui garde les commandes</h2>
+                        <p>L'IA s'installe partout dans nos vies. Découvrez pourquoi elle devient un assistant incontournable tout en laissant la main à la réflexion humaine.</p>
+                    </div>
+                    <a href="article-1.html" class="read-more">Lire l'article &rarr;</a>
+                </article>
+
             </div>
-        </div>
-    </main>
+        </section>
+    </div>
 
     <footer>
-        <p>&copy; 2026 NEXUS // IA — Tous droits réservés</p>
+        <p>&copy; 2026 NEXUS//IA — Propulsion Blue-Tech & GitHub Pages</p>
     </footer>
 
 </body>
