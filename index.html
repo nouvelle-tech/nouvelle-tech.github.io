@@ -3,54 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOUVELLE TECH — Actualités Tech & IA</title>
+    <title>NEXUS // IA – Tech & Future</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #030712;
-            --card-bg: rgba(10, 25, 47, 0.7);
-            --electric-blue: #0088ff;
-            --neon-cyan: #00f0ff;
-            --glow-blue: rgba(0, 136, 255, 0.4);
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
+            --bg-profond: #030712;
+            --carte-bg: rgba(10, 25, 47, 0.7);
+            --bleu électrique: #0088ff;
+            --cyan néon: #00f0ff;
+            --bleu lumineux: rgba(0, 136, 255, 0,4);
+            --texte-main: #f1f5f9;
+            --texte muet: #94a3b8;
             --border-glow: rgba(0, 240, 255, 0.25);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Rajdhani', sans-serif; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
         
-        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 10%; border-bottom: 1px solid var(--border-glow); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; }
-        .logo { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 800; color: #fff; text-shadow: 0 0 12px var(--electric-blue); text-decoration: none; letter-spacing: 1px; }
-        .logo span { color: var(--neon-cyan); }
+        body {
+            background-color: var(--bg-profond);
+            color: var(--texte-main);
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 136, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.06) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-        main { flex: 1; max-width: 1200px; width: 90%; margin: 40px auto; }
-        .hero { text-align: center; margin-bottom: 50px; }
-        .hero h1 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 15px; color: #fff; text-shadow: 0 0 15px var(--glow-blue); }
-        .hero p { color: var(--text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            border-bottom: 1px solid var(--border-glow);
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .card { background: var(--card-bg); border: 1px solid var(--border-glow); border-radius: 12px; padding: 30px; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 0 20px var(--glow-blue); border-color: var(--neon-cyan); }
-        
-        .tag { font-family: 'Orbitron', sans-serif; font-size: 0.75rem; color: var(--neon-cyan); background: rgba(0, 136, 255, 0.15); border: 1px solid var(--electric-blue); padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 15px; width: fit-content; }
-        .card h2 { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; margin-bottom: 15px; color: #fff; line-height: 1.4; }
-        .card p { color: var(--text-muted); margin-bottom: 25px; font-size: 1.05rem; }
-        
-        .read-more { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--neon-cyan); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; }
-        .read-more:hover { color: #fff; text-shadow: 0 0 8px var(--neon-cyan); }
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--texte-main);
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--bleu électrique);
+        }
 
-        footer { text-align: center; padding: 30px 0; color: var(--text-muted); border-top: 1px solid var(--border-glow); font-size: 0.95rem; margin-top: auto; }
+        .logo span { color: var(--cyan néon); text-shadow: 0 0 10px var(--cyan néon); }
+
+        main {
+            flex: 1;
+            max-width: 1200px;
+            width: 90%;
+            margin: 50px auto;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-section h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #fff, var(--cyan néon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .hero-section p {
+            color: var(--texte muet);
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--carte-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 14px;
+            padding: 35px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--cyan néon);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.3), inset 0 0 15px rgba(0, 240, 255, 0.1);
+        }
+
+        .tag {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--cyan néon);
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 5px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .card h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .card p {
+            color: var(--texte muet);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .read-more {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--cyan néon);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .read-more:hover {
+            color: #fff;
+            text-shadow: 0 0 8px var(--cyan néon);
+            transform: translateX(5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--texte muet);
+            border-top: 1px solid var(--border-glow);
+            font-size: 0.9rem;
+            background: rgba(3, 7, 18, 0.5);
+            margin-top: auto;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">NOUVELLE<span>TECH</span></a>
+        <a href="index.html" class="logo">NEXUS<span>//IA</span></a>
     </header>
 
     <main>
-        <div class="hero">
+        <div class="hero-section">
             <h1>L'actualité de la Tech et de l'IA</h1>
             <p>Décryptage des innovations et de leur impact dans notre quotidien.</p>
         </div>
@@ -66,7 +196,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 NOUVELLE TECH — Tous droits réservés</p>
+        <p>&copy; 2026 NEXUS // IA — Tous droits réservés</p>
     </footer>
 
 </body>
