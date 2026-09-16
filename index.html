@@ -3,183 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nouvelle Tech IA</title>
-    <!-- Import des polices high-tech -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <title>NEXUS//IA — Tech & Future</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #030712;
-            --card-bg: rgba(8, 18, 38, 0.75);
+            --bg-deep: #030712;
+            --card-bg: rgba(10, 25, 47, 0.7);
+            --electric-blue: #0088ff;
             --neon-cyan: #00f0ff;
-            --border-glow: #00f0ff;
-            --text-main: #ffffff;
-            --text-muted: #c0d0e0;
+            --glow-blue: rgba(0, 136, 255, 0.4);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(0, 240, 255, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-deep);
             color: var(--text-main);
             font-family: 'Rajdhani', sans-serif;
-            margin: 0;
-            padding: 30px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+        /* Arrière-plan dynamique avec grille et orbes lumineux */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 136, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
+                linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)),
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px);
+            z-index: -1;
         }
 
-        /* En-tête électronique d'origine */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--neon-cyan);
-            padding-bottom: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+            padding: 20px 10%;
+            border-bottom: 1px solid var(--border-glow);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
         }
 
         .logo-container {
             display: flex;
             align-items: center;
             gap: 15px;
+            text-decoration: none;
         }
 
         .logo-icon {
-            font-size: 2.2rem;
-            filter: drop-shadow(0 0 15px var(--neon-cyan));
+            width: 42px;
+            height: 42px;
+            filter: drop-shadow(0 0 8px var(--neon-cyan));
+            transition: transform 0.3s ease;
         }
 
-        .logo {
+        .logo-container:hover .logo-icon {
+            transform: scale(1.1);
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan);
+            letter-spacing: 2px;
+        }
+
+        .status-badge {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            border: 1px solid var(--neon-cyan);
+            padding: 5px 14px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px var(--glow-blue);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        /* Section Présentation */
+        .hero {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-left: 4px solid var(--neon-cyan);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 240, 255, 0.05);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 2.3rem;
             color: #fff;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.8), 0 0 25px rgba(0, 240, 255, 0.5);
+            margin-bottom: 15px;
         }
 
-        .sys-status {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
+        .hero h1 span {
             color: var(--neon-cyan);
-            background: rgba(0, 240, 255, 0.15);
-            border: 1px solid var(--neon-cyan);
-            padding: 8px 16px;
-            border-radius: 20px;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+            text-shadow: 0 0 10px var(--glow-blue);
         }
 
-        /* Blocs avec l'effet néon lumineux intense d'origine */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-glow);
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .card h2, .card h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: #fff;
-            margin-top: 0;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
-        }
-
-        .card p {
+        .hero p {
+            font-size: 1.25rem;
             color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-weight: 500;
         }
 
+        /* Titres */
         .section-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 35px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
             color: #fff;
-            margin: 40px 0 20px 0;
-            text-shadow: 0 0 12px rgba(0, 240, 255, 0.7);
-            border-left: 4px solid var(--neon-cyan);
-            padding-left: 12px;
         }
 
-        .badge-cat {
-            background: rgba(0, 240, 255, 0.2);
-            color: var(--neon-cyan);
-            border: 1px solid var(--neon-cyan);
-            padding: 5px 12px;
-            border-radius: 4px;
-            font-size: 0.8rem;
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--electric-blue), transparent);
+        }
+
+        /* Grille d'articles */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 10px;
+            padding: 28px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(6px);
+        }
+
+        .article-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 25px rgba(0, 136, 255, 0.3);
+        }
+
+        .tag {
+            align-self: flex-start;
             font-family: 'Orbitron', sans-serif;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
-            display: inline-block;
-            margin-bottom: 12px;
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            background: rgba(0, 136, 255, 0.15);
+            border: 1px solid var(--electric-blue);
+            padding: 3px 10px;
+            border-radius: 4px;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
         }
 
-        .btn-read {
+        .article-card h2 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .article-card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 22px;
+        }
+
+        .read-more {
+            text-decoration: none;
+            color: var(--neon-cyan);
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--neon-cyan);
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.95rem;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: 0.3s;
+            transition: all 0.2s ease;
         }
 
-        .btn-read:hover {
-            text-shadow: 0 0 15px rgba(0, 240, 255, 1);
+        .read-more:hover {
+            text-shadow: 0 0 10px var(--neon-cyan);
             transform: translateX(5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(0, 240, 255, 0.1);
+            color: var(--text-muted);
+            margin-top: 80px;
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- En-tête -->
-        <header>
-            <div class="logo-container">
-                <span class="logo-icon">💠</span>
-                <div class="logo">Nouvelle Tech IA</div>
+    <header>
+        <a href="index.html" class="logo-container">
+            <!-- Icône SVG personnalisée : Cerveau / Connexions / NT -->
+            <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 50 L35 30 L65 30 L80 50 L65 70 L35 70 Z" stroke="#0088ff" stroke-width="2" stroke-dasharray="3 3"/>
+                <circle cx="20" cy="50" r="5" fill="#00f0ff" />
+                <circle cx="35" cy="30" r="5" fill="#00f0ff" />
+                <circle cx="65" cy="30" r="5" fill="#00f0ff" />
+                <circle cx="80" cy="50" r="5" fill="#00f0ff" />
+                <circle cx="65" cy="70" r="5" fill="#00f0ff" />
+                <circle cx="35" cy="70" r="5" fill="#00f0ff" />
+                <circle cx="50" cy="50" r="7" fill="#0088ff" />
+                <line x1="20" y1="50" x2="50" y2="50" stroke="#00f0ff" stroke-width="2"/>
+                <line x1="80" y1="50" x2="50" y2="50" stroke="#00f0ff" stroke-width="2"/>
+                <line x1="35" y1="30" x2="50" y2="50" stroke="#00f0ff" stroke-width="2"/>
+                <line x1="65" y1="30" x2="50" y2="50" stroke="#00f0ff" stroke-width="2"/>
+                <text x="50" y="58" font-family="'Orbitron', sans-serif" font-size="28" font-weight="900" fill="#ffffff" text-anchor="middle">NT</text>
+            </svg>
+            <span class="logo-text">NEXUS//IA</span>
+        </a>
+        <div class="status-badge">SYS_ONLINE 🟢</div>
+    </header>
+
+    <div class="main-container">
+        <!-- Section Présentation -->
+        <section class="hero">
+            <h1>Bienvenue sur <span>NEXUS//IA</span></h1>
+            <p>
+                Passionné par l'Intelligence Artificielle et l'innovation technologique. Je décrypte ici les dernières avancées en matière d'IA, de domotique, de santé et de mobilité du futur.
+            </p>
+        </section>
+
+        <!-- Section Articles -->
+        <section>
+            <h2 class="section-title">Publications Récentes</h2>
+            
+            <div class="articles-grid">
+                
+                <!-- Article 2 : ChatGPT et nos ados -->
+                <article class="article-card">
+                    <div>
+                        <span class="tag">ÉTHIQUE & SÉCURITÉ</span>
+                        <h2>ChatGPT et nos ados : un outil formidable, mais la sécurité avant tout</h2>
+                        <p>La technologie évolue à une vitesse folle. Face au nouveau mode sécurisé lancé par OpenAI pour les 13-17 ans, la question de la protection des mineurs et de l'encadrement par les parents devient essentielle.</p>
+                    </div>
+                    <a href="article-2.html" class="read-more">Lire l'article &rarr;</a>
+                </article>
+
+                <!-- Article 1 : L'IA au quotidien -->
+                <article class="article-card">
+                    <div>
+                        <span class="tag">INTELLIGENCE ARTIFICIELLE</span>
+                        <h2>L'IA au quotidien : un coup de pouce indispensable, mais c'est l'humain qui garde les commandes</h2>
+                        <p>L'IA s'installe partout dans nos vies. Découvrez pourquoi elle devient un assistant incontournable tout en laissant la main à la réflexion humaine.</p>
+                    </div>
+                    <a href="article-1.html" class="read-more">Lire l'article &rarr;</a>
+                </article>
+
             </div>
-            <div class="sys-status">SYS_ONLINE 🟢</div>
-        </header>
-
-        <!-- Bloc Bienvenue -->
-        <div class="card">
-            <h2>Bienvenue sur Nouvelle Tech</h2>
-            <p>
-                Bonjour, Passionné par l'Intelligence Artificielle, je partage ici mon regard sur son impact au quotidien, que ce soit au travail ou à la maison. L'IA s'installe partout, mais la réflexion humaine doit toujours rester aux commandes.
-            </p>
-        </div>
-
-        <div class="section-title">Publications Récentes</div>
-
-        <!-- Article 2 : ChatGPT et nos ados -->
-        <div class="card">
-            <span class="badge-cat">ÉTHIQUE & SÉCURITÉ</span>
-            <h3>ChatGPT et nos ados : un outil formidable, mais la sécurité avant tout</h3>
-            <p>
-                La technologie évolue à une vitesse folle. Face au nouveau mode sécurisé lancé par OpenAI pour les 13-17 ans, la question de la protection des mineurs et de l'encadrement par les parents devient essentielle.
-            </p>
-            <a href="article-2.html" class="btn-read">Lire l'article →</a>
-        </div>
-
-        <!-- Article 1 : L'IA au quotidien -->
-        <div class="card">
-            <span class="badge-cat">INTELLIGENCE ARTIFICIELLE</span>
-            <h3>L'IA au quotidien : un coup de pouce indispensable, mais c'est l'humain qui garde les commandes</h3>
-            <p>
-                L'IA s'installe partout dans nos vies. Découvrez pourquoi elle devient un assistant incontournable tout en laissant la main à la réflexion humaine.
-            </p>
-            <a href="article-1.html" class="btn-read">Lire l'article →</a>
-        </div>
-
+        </section>
     </div>
+
+    <footer>
+        <p>&copy; 2026 NEXUS//IA — Propulsion Blue-Tech & GitHub Pages</p>
+    </footer>
 
 </body>
 </html>
