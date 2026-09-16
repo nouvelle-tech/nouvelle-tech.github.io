@@ -36,7 +36,7 @@
             align-items: center;
             border-bottom: 2px solid var(--border-glow);
             padding-bottom: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 40px;
             box-shadow: 0 5px 15px rgba(0, 240, 255, 0.1);
         }
 
@@ -58,34 +58,6 @@
             padding: 8px 15px;
             border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
-        }
-
-        /* Barre de navigation horizontale en dessous de l'en-tête */
-        .navbar-links {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 35px;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border-glow);
-            color: var(--neon-cyan);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
-        }
-
-        .nav-btn:hover {
-            background: rgba(0, 240, 255, 0.15);
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
-            transform: translateY(-2px);
         }
 
         /* Cartes de contenu */
@@ -163,14 +135,6 @@
             <div class="sys-status">SYS_ONLINE 🟢</div>
         </header>
 
-        <!-- Barre de liens en dessous de l'en-tête -->
-        <nav class="navbar-links">
-            <a href="index.html" class="nav-btn">🏠 Accueil</a>
-            <a href="#articles" class="nav-btn">📚 Tous les articles</a>
-            <a href="#biographie" class="nav-btn">👨‍💻 Mon parcours & Bio</a>
-            <a href="#partager" class="nav-btn">🔗 Partager le site</a>
-        </nav>
-
         <!-- Bloc Bienvenue -->
         <div class="card">
             <h2>Bienvenue sur Nouvelle Tech</h2>
@@ -179,7 +143,7 @@
             </p>
         </div>
 
-        <div class="section-title" id="articles">Publications Récentes</div>
+        <div class="section-title">Publications Récentes</div>
 
         <!-- Article 2 : ChatGPT et nos ados -->
         <div class="card">
