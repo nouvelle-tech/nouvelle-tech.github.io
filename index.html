@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nouvelle Tech IA</title>
-    <!-- Import des polices du style Blue Abysse -->
+    <!-- Import des polices -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #050b14;
             --card-bg: rgba(10, 20, 35, 0.7);
             --neon-cyan: #00f0ff;
-            --border-glow: rgba(0, 240, 255, 0.3);
+            --border-glow: rgba(0, 240, 255, 0.4);
             --text-main: #ffffff;
-            --text-muted: #a0aec0;
+            --text-muted: #d0d7de;
         }
 
         body {
@@ -21,11 +21,11 @@
             color: var(--text-main);
             font-family: 'Rajdhani', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 30px;
         }
 
-        .main-container {
-            max-width: 1200px;
+        .container {
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -34,145 +34,105 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-glow);
+            border-bottom: 2px solid var(--border-glow);
             padding-bottom: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.1);
         }
 
         .logo {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #fff;
             letter-spacing: 2px;
             text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
         }
 
         .sys-status {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--neon-cyan);
-            background: rgba(0, 240, 255, 0.05);
-            border: 1px solid var(--border-glow);
-            padding: 6px 12px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid var(--neon-cyan);
+            padding: 8px 15px;
             border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
         }
 
-        /* Structure en 2 colonnes (Menu gauche + Articles droite) */
-        .content-layout {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .content-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Barre latérale (Menu de gauche) */
-        .sidebar {
+        /* Barre de navigation horizontale en dessous de l'en-tête */
+        .navbar-links {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
         }
 
-        .side-box {
+        .nav-btn {
             background: var(--card-bg);
             border: 1px solid var(--border-glow);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-        }
-
-        .side-box h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
             color: var(--neon-cyan);
-            margin-top: 0;
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--border-glow);
-            padding-bottom: 8px;
-        }
-
-        .side-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .side-menu a {
-            color: var(--text-main);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
             text-decoration: none;
-            font-size: 1.05rem;
             transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
         }
 
-        .side-menu a:hover {
-            color: var(--neon-cyan);
-            transform: translateX(5px);
+        .nav-btn:hover {
+            background: rgba(0, 240, 255, 0.15);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            transform: translateY(-2px);
         }
 
-        /* Section principale des articles */
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 15px;
-            border-left: 3px solid var(--neon-cyan);
-            padding-left: 10px;
-        }
-
-        .article-card {
+        /* Cartes de contenu */
+        .card {
             background: var(--card-bg);
             border: 1px solid var(--border-glow);
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 240, 255, 0.05);
             backdrop-filter: blur(8px);
-            transition: 0.3s;
         }
 
-        .article-card:hover {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.15);
+        .card h2, .card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            margin-top: 0;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 40px 0 20px 0;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            border-left: 4px solid var(--neon-cyan);
+            padding-left: 12px;
         }
 
         .badge-cat {
-            background: rgba(0, 240, 255, 0.1);
+            background: rgba(0, 240, 255, 0.15);
             color: var(--neon-cyan);
             border: 1px solid var(--neon-cyan);
             padding: 4px 10px;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-family: 'Orbitron', sans-serif;
-        }
-
-        .article-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.25rem;
-            color: #fff;
-            margin: 15px 0 10px 0;
-        }
-
-        .article-card p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+            display: inline-block;
+            margin-bottom: 12px;
         }
 
         .btn-read {
@@ -182,90 +142,65 @@
             color: var(--neon-cyan);
             text-decoration: none;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             font-weight: bold;
+            margin-top: 15px;
             transition: 0.3s;
         }
 
         .btn-read:hover {
-            text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+            text-shadow: 0 0 12px rgba(0, 240, 255, 0.8);
+            transform: translateX(5px);
         }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <!-- En-tête du site -->
+    <div class="container">
+        <!-- En-tête -->
         <header>
             <div class="logo">Nouvelle Tech IA</div>
             <div class="sys-status">SYS_ONLINE 🟢</div>
         </header>
 
-        <!-- Layout en 2 colonnes -->
-        <div class="content-layout">
-            
-            <!-- COLONNE DE GAUCHE : Menu & Liens -->
-            <aside class="sidebar">
-                <!-- Bloc de navigation rapide -->
-                <div class="side-box">
-                    <h3>Navigation</h3>
-                    <ul class="side-menu">
-                        <li><a href="index.html">🏠 Accueil</a></li>
-                        <li><a href="#archives">📚 Tous les articles</a></li>
-                        <li><a href="#biographie">👨‍💻 Mon parcours & Bio</a></li>
-                        <li><a href="#partager">🔗 Partager le site</a></li>
-                    </ul>
-                </div>
+        <!-- Barre de liens en dessous de l'en-tête -->
+        <nav class="navbar-links">
+            <a href="index.html" class="nav-btn">🏠 Accueil</a>
+            <a href="#articles" class="nav-btn">📚 Tous les articles</a>
+            <a href="#biographie" class="nav-btn">👨‍💻 Mon parcours & Bio</a>
+            <a href="#partager" class="nav-btn">🔗 Partager le site</a>
+        </nav>
 
-                <!-- Petit encadré de présentation rapide -->
-                <div class="side-box">
-                    <h3>À propos</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">
-                        Un regard humain, éthique et parental sur l'évolution de l'intelligence artificielle au quotidien.
-                    </p>
-                </div>
-            </aside>
-
-            <!-- COLONNE DE DROITE : Le contenu principal / Articles -->
-            <main class="main-content">
-                
-                <!-- Bloc de bienvenue -->
-                <div class="article-card">
-                    <h2 style="font-family: 'Orbitron', sans-serif; color: #fff; margin-top: 0; font-size: 1.4rem;">Bienvenue sur Nouvelle Tech</h2>
-                    <p>
-                        Bonjour, passionné par l'Intelligence Artificielle, je partage ici mon regard sur son impact au quotidien, que ce soit au travail ou à la maison. L'IA est un formidable assistant, mais la réflexion humaine doit toujours rester aux commandes.
-                    </p>
-                </div>
-
-                <div class="section-title">Publications Récentes</div>
-
-                <!-- Article 2 : ChatGPT et nos ados -->
-                <div class="article-card">
-                    <div>
-                        <span class="badge-cat">ÉTHIQUE & SÉCURITÉ</span>
-                    </div>
-                    <h3>ChatGPT et nos ados : un outil formidable, mais la sécurité avant tout</h3>
-                    <p>
-                        La technologie évolue à une vitesse folle. Face au nouveau mode sécurisé lancé par OpenAI pour les 13-17 ans, la question de la protection des mineurs et de l'encadrement par les parents devient essentielle.
-                    </p>
-                    <a href="article-2.html" class="btn-read">Lire l'article →</a>
-                </div>
-
-                <!-- Article 1 : L'IA au quotidien -->
-                <div class="article-card">
-                    <div>
-                        <span class="badge-cat">INTELLIGENCE ARTIFICIELLE</span>
-                    </div>
-                    <h3>L'IA au quotidien : un coup de pouce indispensable, mais c'est l'humain qui garde les commandes</h3>
-                    <p>
-                        L'IA s'installe partout dans nos vies. Découvrez pourquoi elle devient un assistant incontournable tout en laissant la main à la réflexion humaine.
-                    </p>
-                    <a href="article-1.html" class="btn-read">Lire l'article →</a>
-                </div>
-
-            </main>
-
+        <!-- Bloc Bienvenue -->
+        <div class="card">
+            <h2>Bienvenue sur Nouvelle Tech</h2>
+            <p>
+                Bonjour, passionné par l'Intelligence Artificielle, je partage ici mon regard sur son impact au quotidien, que ce soit au travail ou à la maison. L'IA s'installe partout, mais la réflexion humaine doit toujours rester aux commandes.
+            </p>
         </div>
+
+        <div class="section-title" id="articles">Publications Récentes</div>
+
+        <!-- Article 2 : ChatGPT et nos ados -->
+        <div class="card">
+            <span class="badge-cat">ÉTHIQUE & SÉCURITÉ</span>
+            <h3>ChatGPT et nos ados : un outil formidable, mais la sécurité avant tout</h3>
+            <p>
+                La technologie évolue à une vitesse folle. Face au nouveau mode sécurisé lancé par OpenAI pour les 13-17 ans, la question de la protection des mineurs et de l'encadrement par les parents devient essentielle.
+            </p>
+            <a href="article-2.html" class="btn-read">Lire l'article →</a>
+        </div>
+
+        <!-- Article 1 : L'IA au quotidien -->
+        <div class="card">
+            <span class="badge-cat">INTELLIGENCE ARTIFICIELLE</span>
+            <h3>L'IA au quotidien : un coup de pouce indispensable, mais c'est l'humain qui garde les commandes</h3>
+            <p>
+                L'IA s'installe partout dans nos vies. Découvrez pourquoi elle devient un assistant incontournable tout en laissant la main à la réflexion humaine.
+            </p>
+            <a href="article-1.html" class="btn-read">Lire l'article →</a>
+        </div>
+
     </div>
 
 </body>
