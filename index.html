@@ -55,7 +55,6 @@
             padding: 30px 10%;
             border-bottom: 1px solid var(--border-glow);
             backdrop-filter: blur(12px);
-            /* Suppression du sticky pour que tout défile en même temps */
             position: relative; 
             z-index: 10;
             box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
@@ -90,7 +89,7 @@
             letter-spacing: 3px;
         }
 
-        /* La bannière de votre fils juste en dessous, dimensionnée harmonieusement */
+        /* La bannière du haut */
         .header-banner-center {
             width: 100%;
             max-width: 550px;
@@ -230,12 +229,37 @@
             transform: translateX(5px);
         }
 
+        /* Style pour la bannière de fin (image-fin.png) */
+        .footer-banner-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 70px;
+            margin-bottom: 20px;
+        }
+
+        .footer-banner-img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .footer-banner-img:hover {
+            transform: scale(1.01);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+        }
+
         footer {
             text-align: center;
             padding: 40px 0;
             border-top: 1px solid rgba(0, 240, 255, 0.1);
             color: var(--text-muted);
-            margin-top: 80px;
+            margin-top: 40px;
             font-size: 0.95rem;
         }
     </style>
@@ -251,7 +275,7 @@
             <span class="logo-text">NOUVELLE TECH IA</span>
         </a>
 
-        <!-- La création de votre fils (image23.png) centrée juste en dessous -->
+        <!-- La bannière du haut (image23.png) -->
         <a href="index.html">
             <img src="image23.png" alt="Bannière Tech" class="header-banner-center">
         </a>
@@ -295,6 +319,11 @@
 
             </div>
         </section>
+
+        <!-- Votre nouvelle bannière de fin (image-fin.png) -->
+        <div class="footer-banner-container">
+            <img src="image-fin.png" alt="Merci de votre visite" class="footer-banner-img">
+        </div>
     </div>
 
     <footer>
