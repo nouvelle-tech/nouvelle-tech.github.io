@@ -48,9 +48,11 @@
 
         header {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            padding: 20px 10%;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px 10%;
             border-bottom: 1px solid var(--border-glow);
             backdrop-filter: blur(12px);
             position: sticky;
@@ -59,47 +61,51 @@
             box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
         }
 
+        /* Votre titre néon centré et mis en valeur */
         .logo-container {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
             text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            filter: drop-shadow(0 0 8px var(--neon-cyan));
             transition: transform 0.3s ease;
         }
 
-        .logo-container:hover .logo-icon {
-            transform: scale(1.1);
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            filter: drop-shadow(0 0 10px var(--neon-cyan));
         }
 
         .logo-text {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.6rem;
+            font-size: 2rem;
             font-weight: 800;
             color: #fff;
             text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
-        /* Style pour la bannière de votre fils à droite à la place du status-badge */
-        .header-banner-right {
-            max-width: 220px;
+        /* La bannière de votre fils juste en dessous, dimensionnée harmonieusement */
+        .header-banner-center {
+            width: 100%;
+            max-width: 550px;
             height: auto;
             display: block;
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid var(--border-glow);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
             transition: transform 0.3s ease;
         }
 
-        .header-banner-right:hover {
-            transform: scale(1.03);
+        .header-banner-center:hover {
+            transform: scale(1.02);
             border-color: var(--neon-cyan);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
         }
 
         .main-container {
@@ -237,16 +243,17 @@
 <body>
 
     <header>
+        <!-- Élément du haut : Votre titre néon et votre logo d'origine centrés -->
         <a href="index.html" class="logo-container">
-            <!-- Votre petit logo d'origine à gauche -->
             <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
             </svg>
             <span class="logo-text">NOUVELLE TECH IA</span>
         </a>
-        <!-- La création de votre fils positionnée à droite à la place du SYS_ONLINE -->
+
+        <!-- Élément du bas : La création de votre fils (image23.png) centrée juste en dessous -->
         <a href="index.html">
-            <img src="image23.png" alt="Bannière Tech" class="header-banner-right">
+            <img src="image23.png" alt="Bannière Tech" class="header-banner-center">
         </a>
     </header>
 
