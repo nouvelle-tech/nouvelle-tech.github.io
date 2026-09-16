@@ -55,9 +55,9 @@
             padding: 30px 10%;
             border-bottom: 1px solid var(--border-glow);
             backdrop-filter: blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            /* Suppression du sticky pour que tout défile en même temps */
+            position: relative; 
+            z-index: 10;
             box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
         }
 
@@ -243,7 +243,7 @@
 <body>
 
     <header>
-        <!-- Élément du haut : Votre titre néon et votre logo d'origine centrés -->
+        <!-- Votre titre néon et votre logo d'origine centrés -->
         <a href="index.html" class="logo-container">
             <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
@@ -251,7 +251,7 @@
             <span class="logo-text">NOUVELLE TECH IA</span>
         </a>
 
-        <!-- Élément du bas : La création de votre fils (image23.png) centrée juste en dessous -->
+        <!-- La création de votre fils (image23.png) centrée juste en dessous -->
         <a href="index.html">
             <img src="image23.png" alt="Bannière Tech" class="header-banner-center">
         </a>
