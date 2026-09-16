@@ -59,14 +59,31 @@
             box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
         }
 
-        .logo {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            filter: drop-shadow(0 0 8px var(--neon-cyan));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover .logo-icon {
+            transform: scale(1.1);
+        }
+
+        .logo-text {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.6rem;
             font-weight: 800;
             color: #fff;
             text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan);
             letter-spacing: 2px;
-            text-decoration: none;
         }
 
         .status-badge {
@@ -215,7 +232,28 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">NEXUS//IA</a>
+        <a href="index.html" class="logo-container">
+            <!-- Icône SVG personnalisée : Cerveau / Connexions / NT -->
+            <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Nœuds et connexions du réseau de neurones -->
+                <path d="M20 50 L35 30 L65 30 L80 50 L65 70 L35 70 Z" stroke="#0088ff" stroke-width="2" stroke-dasharray="3 3"/>
+                <circle cx="20" cy="50" r="5" fill="#00f0ff" />
+                <circle cx="35" cy="30" r="5" fill="#00f0ff" />
+                <circle cx="65" cy="30" r="5" fill="#00f0ff" />
+                <circle cx="80" cy="50" r="5" fill="#00f0ff" />
+                <circle cx="65" cy="70" r="5" fill="#00f0ff" />
+                <circle cx="35" cy="70" r="5" fill="#00f0ff" />
+                <circle cx="50" cy="50" r="7" fill="#0088ff" />
+                <!-- Lignes centrales -->
+                <line x1="20" y1="50" x2="50" y2="50" stroke="#00f0ff" stroke-width="2"/>
+                <line x1="80" y1="50" x2="50" y2="50" stroke="#00f0ff" stroke-width="2"/>
+                <line x1="35" y1="30" x2="50" y2="50" stroke="#00f0ff" stroke-width="2"/>
+                <line x1="65" y1="30" x2="50" y2="50" stroke="#00f0ff" stroke-width="2"/>
+                <!-- Initiales NT stylisées au centre -->
+                <text x="50" y="58" font-family="'Orbitron', sans-serif" font-size="28" font-weight="900" fill="#ffffff" text-anchor="middle">NT</text>
+            </svg>
+            <span class="logo-text">NEXUS//IA</span>
+        </a>
         <div class="status-badge">SYS_ONLINE 🟢</div>
     </header>
 
