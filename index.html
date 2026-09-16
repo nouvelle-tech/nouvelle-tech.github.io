@@ -9,9 +9,9 @@
     <style>
         :root {
             --bg-color: #050b14;
-            --card-bg: rgba(10, 20, 35, 0.7);
+            --card-bg: rgba(10, 25, 50, 0.6);
             --neon-cyan: #00f0ff;
-            --border-glow: rgba(0, 240, 255, 0.4);
+            --border-glow: rgba(0, 240, 255, 0.6);
             --text-main: #ffffff;
             --text-muted: #d0d7de;
         }
@@ -29,56 +29,56 @@
             margin: 0 auto;
         }
 
-        /* En-tête d'origine avec le logo et son icône */
+        /* En-tête original avec l'effet néon prononcé */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--border-glow);
+            border-bottom: 2px solid var(--neon-cyan);
             padding-bottom: 20px;
             margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 240, 255, 0.3);
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .logo-icon {
-            font-size: 1.8rem;
-            filter: drop-shadow(0 0 10px var(--neon-cyan));
+            font-size: 2rem;
+            filter: drop-shadow(0 0 12px var(--neon-cyan));
         }
 
         .logo {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            color: #fff;
+            font-size: 2.2rem;
+            color: #ffffff;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.4);
         }
 
         .sys-status {
             font-family: 'Orbitron', sans-serif;
             font-size: 0.9rem;
             color: var(--neon-cyan);
-            background: rgba(0, 240, 255, 0.1);
+            background: rgba(0, 240, 255, 0.15);
             border: 1px solid var(--neon-cyan);
-            padding: 8px 15px;
+            padding: 8px 16px;
             border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
         }
 
-        /* Cartes de contenu d'origine */
+        /* Cartes de contenu avec le vrai bleu lumineux d'origine */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border-glow);
             padding: 30px;
             border-radius: 12px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 240, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 240, 255, 0.1);
             backdrop-filter: blur(8px);
         }
 
@@ -86,7 +86,7 @@
             font-family: 'Orbitron', sans-serif;
             color: #fff;
             margin-top: 0;
-            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
         }
 
         .card p {
@@ -100,20 +100,20 @@
             font-size: 1.5rem;
             color: #fff;
             margin: 40px 0 20px 0;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            text-shadow: 0 0 12px rgba(0, 240, 255, 0.7);
             border-left: 4px solid var(--neon-cyan);
             padding-left: 12px;
         }
 
         .badge-cat {
-            background: rgba(0, 240, 255, 0.15);
+            background: rgba(0, 240, 255, 0.2);
             color: var(--neon-cyan);
             border: 1px solid var(--neon-cyan);
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 4px;
             font-size: 0.8rem;
             font-family: 'Orbitron', sans-serif;
-            box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
             display: inline-block;
             margin-bottom: 12px;
         }
@@ -132,7 +132,7 @@
         }
 
         .btn-read:hover {
-            text-shadow: 0 0 12px rgba(0, 240, 255, 0.8);
+            text-shadow: 0 0 15px rgba(0, 240, 255, 1);
             transform: translateX(5px);
         }
     </style>
@@ -143,7 +143,7 @@
         <!-- En-tête -->
         <header>
             <div class="logo-container">
-                <span class="logo-icon">✨</span>
+                <span class="logo-icon">💠</span>
                 <div class="logo">Nouvelle Tech IA</div>
             </div>
             <div class="sys-status">SYS_ONLINE 🟢</div>
@@ -153,7 +153,7 @@
         <div class="card">
             <h2>Bienvenue sur Nouvelle Tech</h2>
             <p>
-                Bonjour, passionné par l'Intelligence Artificielle, je partage ici mon regard sur son impact au quotidien, que ce soit au travail ou à la maison. L'IA s'installe partout, mais la réflexion humaine doit toujours rester aux commandes.
+                Bonjour, Passionné par l'intelligence Artificielle, je partage ici mon regard sur son impact au quotidien, que ce soit au travail ou à la maison. L'IA s'installe partout, mais la réflexion humaine doit toujours rester aux commandes.
             </p>
         </div>
 
