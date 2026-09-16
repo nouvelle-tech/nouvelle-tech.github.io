@@ -62,31 +62,44 @@
         .logo-container {
             display: flex;
             align-items: center;
+            gap: 15px;
             text-decoration: none;
-            max-width: 350px;
         }
 
-        .header-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-            filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.4));
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            filter: drop-shadow(0 0 8px var(--neon-cyan));
             transition: transform 0.3s ease;
         }
 
-        .logo-container:hover .header-banner {
-            transform: scale(1.02);
+        .logo-container:hover .logo-icon {
+            transform: scale(1.1);
         }
 
-        .status-badge {
+        .logo-text {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
-            color: var(--neon-cyan);
-            border: 1px solid var(--neon-cyan);
-            padding: 5px 14px;
-            border-radius: 20px;
-            box-shadow: 0 0 10px var(--glow-blue);
-            background: rgba(0, 240, 255, 0.05);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan);
+            letter-spacing: 2px;
+        }
+
+        /* Style pour la bannière de votre fils à droite à la place du status-badge */
+        .header-banner-right {
+            max-width: 220px;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .header-banner-right:hover {
+            transform: scale(1.03);
+            border-color: var(--neon-cyan);
         }
 
         .main-container {
@@ -225,9 +238,16 @@
 
     <header>
         <a href="index.html" class="logo-container">
-            <img src="image23.png" alt="Nouvelle Tech IA Banner" class="header-banner">
+            <!-- Votre petit logo d'origine à gauche -->
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span class="logo-text">NOUVELLE TECH IA</span>
         </a>
-        <div class="status-badge">SYS_ONLINE 🟢</div>
+        <!-- La création de votre fils positionnée à droite à la place du SYS_ONLINE -->
+        <a href="index.html">
+            <img src="image23.png" alt="Bannière Tech" class="header-banner-right">
+        </a>
     </header>
 
     <div class="main-container">
