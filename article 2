@@ -1,0 +1,40 @@
+<article class="article-post">
+    <!-- En-tête de l'article -->
+    <div class="article-meta">
+        <span class="badge-cat">ÉTHIQUE & SÉCURITÉ</span>
+        <span class="article-date">Août 2026</span>
+    </div>
+    
+    <h1>ChatGPT et nos ados : un outil formidable, mais la sécurité doit rester la priorité</h1>
+    
+    <p class="lead-text">
+        La technologie évolue à une vitesse fulgurante. Aujourd'hui, nos enfants utilisent des tablettes et des outils numériques dès l'école secondaire, s'appuyant sur les données et le numérique au quotidien. C'est normal, il faut vivre avec son temps.
+    </p>
+
+    <p>
+        Mais à la lecture des récentes actualités concernant le mode spécial adolescents lancé par OpenAI pour les 13-17 ans, une question s'impose : est-ce vraiment nécessaire ? En tant que père, ma réponse est un grand oui.
+    </p>
+
+    <!-- Petit encadré stylisé pour casser le texte brut -->
+    <div class="quote-box-tech">
+        <p>« L'intelligence artificielle reste un outil froid, sans émotions ni conscience de base. Mal utilisée, elle peut mener à des dérives graves. »</p>
+    </div>
+
+    <p>
+        Il ne faut pas l'oublier : ces outils peuvent parfois pousser vers des comportements dangereux si aucun garde-fou n'est posé. C'est pourquoi je trouve très bien qu'une entreprise comme OpenAI serre la vis et mette en place des règles beaucoup plus strictes et des filtres de protection adaptés à leur âge.
+    </p>
+
+    <h2>L'humain doit rester aux commandes</h2>
+
+    <p>
+        Cependant, comme nous le disions déjà dans un précédent article, la technologie ne remplacera jamais le rôle des parents. C'est à nous de surveiller, d'accompagner et de suivre ce que font nos jeunes. Mais si les géants de la tech font leur part du travail en instaurant une vraie sécurité à la source, c'est un soulagement formidable.
+    </p>
+
+    <!-- Bloc récapitulatif / Alerte propre -->
+    <div class="alert-box-tech">
+        <h3>💡 En résumé</h3>
+        <p>
+            Faites vraiment attention à vos enfants. L'intelligence artificielle peut être un outil d'apprentissage extraordinaire, mais elle cache aussi des risques bien réels. Vivons pleinement avec notre époque, oui, mais toujours avec des filtres, des barrières de sécurité et un œil bienveillant derrière.
+        </p>
+    </div>
+</article>
