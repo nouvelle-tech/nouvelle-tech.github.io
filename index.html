@@ -32,7 +32,7 @@
             min-height: 100vh;
         }
 
-        /* Arrière-plan dynamique avec grille et orbes lumineux */
+        /* Arrière-plan dynamique */
         body::before {
             content: "";
             position: fixed;
@@ -56,11 +56,83 @@
             border-bottom: 1px solid var(--border-glow);
             backdrop-filter: blur(12px);
             position: relative; 
-            z-index: 10;
+            z-index: 100;
             box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
         }
 
-        /* Votre titre néon centré et mis en valeur */
+        /* MENU BURGER (Haut gauche) */
+        .menu-container {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+        }
+
+        .burger-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .burger-btn:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        .burger-line {
+            width: 22px;
+            height: 2px;
+            background-color: var(--neon-cyan);
+            box-shadow: 0 0 5px var(--neon-cyan);
+            transition: 0.3s;
+        }
+
+        /* Panneau déroulant du menu */
+        .menu-dropdown {
+            position: absolute;
+            top: 55px;
+            left: 0;
+            background: rgba(3, 7, 18, 0.95);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            width: 200px;
+            padding: 10px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            z-index: 1000;
+        }
+
+        .menu-dropdown.active {
+            display: block;
+        }
+
+        .menu-dropdown a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85srem;
+            transition: all 0.2s ease;
+        }
+
+        .menu-dropdown a:hover {
+            background: rgba(0, 136, 255, 0.2);
+            color: var(--neon-cyan);
+            padding-left: 25px;
+        }
+
+        /* Logo et Titre */
         .logo-container {
             display: flex;
             align-items: center;
@@ -89,7 +161,7 @@
             letter-spacing: 3px;
         }
 
-        /* La bannière du haut */
+        /* Bannière du haut */
         .header-banner-center {
             width: 100%;
             max-width: 550px;
@@ -161,11 +233,12 @@
             background: linear-gradient(90deg, var(--electric-blue), transparent);
         }
 
-        /* Grille d'articles */
+        /* Grille d'articles (Limitée aux 4 derniers) */
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
+            margin-bottom: 40px;
         }
 
         .article-card {
@@ -229,7 +302,38 @@
             transform: translateX(5px);
         }
 
-        /* Style pour la bannière de fin (image-fin.png) */
+        /* Bouton "Voir plus / Tous les articles" */
+        .view-more-container {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 60px;
+        }
+
+        .btn-neon-glow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            background: var(--card-bg);
+            border: 1px solid var(--neon-cyan);
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-neon-glow:hover {
+            background: rgba(0, 240, 255, 0.15);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+            transform: translateY(-3px);
+            color: #fff;
+        }
+
+        /* Bannière de fin (image-fin.png) */
         .footer-banner-container {
             display: flex;
             justify-content: center;
@@ -267,7 +371,21 @@
 <body>
 
     <header>
-        <!-- Votre titre néon et votre logo d'origine centrés -->
+        <!-- MENU BURGER EN HAUT À GAUCHE -->
+        <div class="menu-container">
+            <div class="burger-btn" onclick="toggleMenu()" title="Menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="index.html">Accueil</a>
+                <a href="categories.html">Catégories</a>
+                <a href="archives.html">Archives</a>
+            </div>
+        </div>
+
+        <!-- Titre et Logo -->
         <a href="index.html" class="logo-container">
             <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2">
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
@@ -275,7 +393,7 @@
             <span class="logo-text">NOUVELLE TECH IA</span>
         </a>
 
-        <!-- La bannière du haut (image23.png) -->
+        <!-- Bannière du haut (image23.png) -->
         <a href="index.html">
             <img src="image23.png" alt="Bannière Tech" class="header-banner-center">
         </a>
@@ -286,18 +404,17 @@
         <section class="hero">
             <h1>Bienvenue sur <span>Nouvelle tech IA</span></h1>
             <p>
-                Passionné par l'Intelligence Artificielle, l'innovation technologique et futuriste vous êtes au bon endroit. Dans ce site, je vous informe de toutes les nouveautés qui vont changer notre quotidien. 
-                Je décrypte ici les dernières avancées et prouesses en matière d'IA, de technologie, de santé et de mobilité du futur. 
+                Passionné par l'Intelligence Artificielle, l'innovation technologique et futuriste vous êtes au bon endroit. Dans ce site je vous informe de toutes nouveautés qui vont changer notre quotidien. 
+                Je décrypte ici les dernières avancées et prouesses en matière d'IA, de technologie, de domotique, de santé et de mobilité du futur. 
             </p>
         </section>
 
-        <!-- Section Articles -->
+        <!-- Section Articles (4 derniers max) -->
         <section>
-            <h2 class="section-title">Publications Récentes</h2>
+            <h2 class="section-title">Dernières Publications</h2>
             
             <div class="articles-grid">
-                
-                <!-- Article 2 : ChatGPT et nos ados -->
+                <!-- Article 2 -->
                 <article class="article-card">
                     <div>
                         <span class="tag">ÉTHIQUE & SÉCURITÉ</span>
@@ -307,7 +424,7 @@
                     <a href="article-2.html" class="read-more">Lire l'article &rarr;</a>
                 </article>
 
-                <!-- Article 1 : L'IA au quotidien -->
+                <!-- Article 1 -->
                 <article class="article-card">
                     <div>
                         <span class="tag">INTELLIGENCE ARTIFICIELLE</span>
@@ -316,11 +433,20 @@
                     </div>
                     <a href="article-1.html" class="read-more">Lire l'article &rarr;</a>
                 </article>
+                
+                <!-- (Ici, vous pourrez rajouter 2 autres articles max pour faire vos 4 articles en page d'accueil) -->
+            </div>
 
+            <!-- BOUTON VOIR TOUS LES ARTICLES / ARCHIVES -->
+            <div class="view-more-container">
+                <a href="archives.html" class="btn-neon-glow">
+                    <span>Voir tous les articles & Archives</span>
+                    &rarr;
+                </a>
             </div>
         </section>
 
-        <!-- Votre nouvelle bannière de fin (image-fin.png) -->
+        <!-- Bannière de fin (image-fin.png ou image2.png) -->
         <div class="footer-banner-container">
             <img src="image-fin.png" alt="Merci de votre visite" class="footer-banner-img">
         </div>
@@ -329,6 +455,24 @@
     <footer>
         <p>&copy; 2026 Nouvelle tech IA — Propulsion Blue-Tech & GitHub Pages</p>
     </footer>
+
+    <!-- Petit script JavaScript pour ouvrir/fermer le menu Burger au clic -->
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById('menuDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Ferme le menu si on clique en dehors
+        window.onclick = function(event) {
+            if (!event.target.closest('.menu-container')) {
+                const dropdown = document.getElementById('menuDropdown');
+                if (dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
