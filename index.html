@@ -122,7 +122,7 @@
             color: var(--text-main);
             text-decoration: none;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.85srem;
+            font-size: 0.85rem;
             transition: all 0.2s ease;
         }
 
@@ -233,7 +233,7 @@
             background: linear-gradient(90deg, var(--electric-blue), transparent);
         }
 
-        /* Grille d'articles (Limitée aux 4 derniers) */
+        /* Grille d'articles */
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -277,6 +277,17 @@
             color: #fff;
             margin-bottom: 12px;
             font-weight: 600;
+        }
+
+        /* Style des liens dans les titres d'articles */
+        .article-card h2 a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .article-card h2 a:hover {
+            color: var(--neon-cyan);
         }
 
         .article-card p {
@@ -333,7 +344,7 @@
             color: #fff;
         }
 
-        /* Bannière de fin (image-fin.png) */
+        /* Bannière de fin */
         .footer-banner-container {
             display: flex;
             justify-content: center;
@@ -394,7 +405,7 @@
             <span class="logo-text">NOUVELLE TECH IA</span>
         </a>
 
-        <!-- Bannière du haut (image23.png) -->
+        <!-- Bannière du haut -->
         <a href="index.html">
             <img src="image23.png" alt="Bannière Tech" class="header-banner-center">
         </a>
@@ -410,7 +421,7 @@
             </p>
         </section>
 
-        <!-- Section Articles (4 derniers max) -->
+        <!-- Section Articles -->
         <section>
             <h2 class="section-title">Dernières Publications</h2>
             
@@ -419,7 +430,7 @@
                 <article class="article-card">
                     <div>
                         <span class="tag">ÉTHIQUE & SÉCURITÉ</span>
-                        <h2>ChatGPT et nos ados : un outil formidable, mais la sécurité avant tout</h2>
+                        <h2><a href="article-2.html">ChatGPT et nos ados : un outil formidable, mais la sécurité avant tout</a></h2>
                         <p>La technologie évolue à une vitesse folle. Face au nouveau mode sécurisé lancé par OpenAI pour les 13-17 ans, la question de la protection des mineurs et de l'encadrement par les parents devient essentielle.</p>
                     </div>
                     <a href="article-2.html" class="read-more">Lire l'article &rarr;</a>
@@ -429,21 +440,21 @@
                 <article class="article-card">
                     <div>
                         <span class="tag">INTELLIGENCE ARTIFICIELLE</span>
-                        <h2>L'IA au quotidien : un coup de pouce indispensable, mais c'est l'humain qui garde les commandes</h2>
+                        <h2><a href="article-1.html">L'IA au quotidien : un coup de pouce indispensable, mais c'est l'humain qui garde les commandes</a></h2>
                         <p>L'IA s'installe partout dans nos vies. Découvrez pourquoi elle devient un assistant incontournable tout en laissant la main à la réflexion humaine.</p>
                     </div>
                     <a href="article-1.html" class="read-more">Lire l'article &rarr;</a>
-                    </article>
+                </article>
 
-                    <article class="article-card">
-    <span class="tag">ROBOTIQUE & FUTUR</span>
-    <h2><a href="article-3.html">Les JO des robots : quand la science-fiction devient notre réalité</a></h2>
-    <p>Découvrez comment les robots humanoïdes évoluent à une vitesse fulgurante et se rapprochent de nos scénarios de science-fiction.</p>
-    <a href="article-3.html" class="read-more">Lire l'article &rarr;</a>
-</article>
-                
-                
-                <!-- (Ici, vous pourrez rajouter 2 autres articles max pour faire vos 4 articles en page d'accueil) -->
+                <!-- Article 3 -->
+                <article class="article-card">
+                    <div>
+                        <span class="tag">ROBOTIQUE & FUTUR</span>
+                        <h2><a href="article-3.html">Les JO des robots : quand la science-fiction devient notre réalité</a></h2>
+                        <p>Découvrez comment les robots humanoïdes évoluent à une vitesse fulgurante et se rapprochent de nos scénarios de science-fiction.</p>
+                    </div>
+                    <a href="article-3.html" class="read-more">Lire l'article &rarr;</a>
+                </article>
             </div>
 
             <!-- BOUTON VOIR TOUS LES ARTICLES / ARCHIVES -->
@@ -455,7 +466,7 @@
             </div>
         </section>
 
-        <!-- Bannière de fin (image-fin.png ou image2.png) -->
+        <!-- Bannière de fin -->
         <div class="footer-banner-container">
             <img src="image-fin.png" alt="Merci de votre visite" class="footer-banner-img">
         </div>
@@ -465,14 +476,13 @@
         <p>&copy; 2026 Nouvelle tech IA — Propulsion Blue-Tech & GitHub Pages</p>
     </footer>
 
-    <!-- Petit script JavaScript pour ouvrir/fermer le menu Burger au clic -->
+    <!-- Script JavaScript pour le menu Burger -->
     <script>
         function toggleMenu() {
             const dropdown = document.getElementById('menuDropdown');
             dropdown.classList.toggle('active');
         }
 
-        // Ferme le menu si on clique en dehors
         window.onclick = function(event) {
             if (!event.target.closest('.menu-container')) {
                 const dropdown = document.getElementById('menuDropdown');
