@@ -9,219 +9,117 @@
         :root {
             --bg-deep: #030712;
             --card-bg: rgba(10, 25, 47, 0.7);
-            --electric-blue: #0088ff;
             --neon-cyan: #00f0ff;
-            --glow-blue: rgba(0, 136, 255, 0.4);
+            --electric-blue: #0088ff;
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
             --border-glow: rgba(0, 240, 255, 0.25);
         }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
         body {
             background-color: var(--bg-deep);
             color: var(--text-main);
             font-family: 'Rajdhani', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(0, 136, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
-                linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)),
-                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px),
-                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px);
-            z-index: -1;
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-cyan);
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(0,240,255,0.3);
         }
-
-        header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            padding: 30px 10%;
-            border-bottom: 1px solid var(--border-glow);
-            backdrop-filter: blur(12px);
-            position: relative; 
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
-        }
-
-        .menu-container { position: absolute; top: 25px; left: 30px; }
-        .burger-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border-glow);
-            border-radius: 8px;
-            width: 45px; height: 45px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
-            transition: all 0.3s ease;
-        }
-        .burger-btn:hover { border-color: var(--neon-cyan); box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
-        .burger-line { width: 22px; height: 2px; background-color: var(--neon-cyan); box-shadow: 0 0 5px var(--neon-cyan); }
-
-        .menu-dropdown {
-            position: absolute; top: 55px; left: 0;
-            background: rgba(3, 7, 18, 0.95);
-            border: 1px solid var(--border-glow);
-            border-radius: 8px; width: 200px; padding: 10px 0;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            display: none; z-index: 1000;
-        }
-        .menu-dropdown.active { display: block; }
-        .menu-dropdown a {
-            display: block; padding: 10px 20px; color: var(--text-main); text-decoration: none;
-            font-family: 'Orbitron', sans-serif; font-size: 0.85rem; transition: all 0.2s ease;
-        }
-        .menu-dropdown a:hover { background: rgba(0, 136, 255, 0.2); color: var(--neon-cyan); padding-left: 25px; }
-
-        .logo-container { display: flex; align-items: center; justify-content: center; gap: 15px; text-decoration: none; }
-        .logo-text {
-            font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 800; color: #fff;
-            text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan); letter-spacing: 3px;
-        }
-
-        .main-container { max-width: 900px; margin: 0 auto; padding: 50px 20px; }
-
-        .page-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-glow);
-            border-left: 4px solid var(--neon-cyan);
-            padding: 40px; border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px); margin-bottom: 40px;
-        }
-        .page-card h1 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; color: #fff; margin-bottom: 20px; }
-        .page-card h1 span { color: var(--neon-cyan); text-shadow: 0 0 10px var(--glow-blue); }
-        .page-card p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 25px; }
-
-        /* Liste des archives */
         .archive-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-top: 20px;
         }
-
         .archive-item {
-            background: rgba(3, 7, 18, 0.6);
+            background: var(--card-bg);
             border: 1px solid var(--border-glow);
             padding: 20px;
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
+            transition: 0.3s;
         }
-
         .archive-item:hover {
             border-color: var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0, 136, 255, 0.3);
-            transform: translateX(5px);
+            box-shadow: 0 0 15px rgba(0,240,255,0.2);
         }
-
-        .archive-title {
+        .archive-info h3 a {
             color: #fff;
-            font-size: 1.15rem;
-            font-weight: 600;
-        }
-
-        .archive-date {
+            text-decoration: none;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
+            font-size: 1.1rem;
+        }
+        .archive-info h3 a:hover {
             color: var(--neon-cyan);
         }
-
-        .back-home { text-align: center; margin-top: 40px; }
-        .btn-social {
-            display: inline-flex; align-items: center; gap: 10px;
-            font-family: 'Orbitron', sans-serif; font-size: 0.95rem; font-weight: 600;
-            color: var(--neon-cyan); background: var(--card-bg); border: 1px solid var(--neon-cyan);
-            padding: 12px 24px; border-radius: 8px; text-decoration: none;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); transition: all 0.3s ease;
+        .archive-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
-        .btn-social:hover {
-            background: rgba(0, 240, 255, 0.15); box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
-            transform: translateY(-3px); color: #fff;
+        .back-home {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
         }
-
-        .footer-banner-container { display: flex; justify-content: center; margin-top: 60px; margin-bottom: 20px; }
-        .footer-banner-img { width: 100%; max-width: 800px; height: auto; border-radius: 12px; border: 1px solid var(--border-glow); box-shadow: 0 0 25px rgba(0, 240, 255, 0.2); }
-
-        footer { text-align: center; padding: 30px 0; border-top: 1px solid rgba(0, 240, 255, 0.1); color: var(--text-muted); font-size: 0.95rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="menu-container">
-            <div class="burger-btn" onclick="toggleMenu()" title="Menu">
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-            </div>
-            <div class="menu-dropdown" id="menuDropdown">
-                <a href="index.html">Accueil</a>
-                <a href="categories.html">Catégories</a>
-                <a href="archives.html">Archives</a>
-                <a href="bio.html">À propos & Bio</a>
-            </div>
-        </div>
-
-        <a href="index.html" class="logo-container">
-            <span class="logo-text">NOUVELLE TECH IA</span>
-        </a>
-    </header>
-
-    <div class="main-container">
-        <section class="page-card">
-            <h1>Historique & <span>Archives</span></h1>
-            <p>Retrouvez ici l'ensemble des articles et décryptages publiés sur le site depuis son lancement.</p>
-
-            <div class="archive-list">
-                <a href="article-2.html" class="archive-item">
-                    <span class="archive-title">ChatGPT et nos ados : un outil formidable, mais la sécurité avant tout</span>
-                    <span class="archive-date">2026</span>
-                </a>
-                <a href="article-1.html" class="archive-item">
-                    <span class="archive-title">L'IA au quotidien : un coup de pouce indispensable, mais c'est l'humain qui garde les commandes</span>
-                    <span class="archive-date">2026</span>
-                </a>
-            </div>
-        </section>
-
-        <div class="back-home">
-            <a href="index.html" class="btn-social">&larr; Retour à l'accueil</a>
-        </div>
-
-        <div class="footer-banner-container">
-            <img src="image-fin.png" alt="Merci de votre visite" class="footer-banner-img">
-        </div>
+    <h1>Archives des Publications</h1>
+    
+    <!-- C'est ici que la liste va se remplir toute seule ! -->
+    <div class="archive-list" id="archiveContainer">
+        <!-- Généré automatiquement par le script ci-dessous -->
     </div>
 
-    <footer>
-        <p>&copy; 2026 Nouvelle tech IA — Propulsion Blue-Tech & GitHub Pages</p>
-    </footer>
+    <a href="index.html" class="back-home">&larr; Retour à l'accueil</a>
 
     <script>
-        function toggleMenu() { document.getElementById('menuDropdown').classList.toggle('active'); }
-        window.onclick = function(event) {
-            if (!event.target.closest('.menu-container')) {
-                const dropdown = document.getElementById('menuDropdown');
-                if (dropdown.classList.contains('active')) { dropdown.classList.remove('active'); }
+        // LA LISTE MAGIQUE : À chaque nouvel article, tu l'ajoutes simplement ici tout en haut !
+        const tousLesArticles = [
+            {
+                titre: "Les JO des robots : quand la science-fiction devient notre réalité",
+                date: "22 Septembre 2026",
+                url: "article-3.html",
+                tag: "ROBOTIQUE"
+            },
+            {
+                titre: "ChatGPT et nos ados : un outil formidable, mais la sécurité avant tout",
+                date: "Septembre 2026",
+                url: "article-2.html",
+                tag: "ÉTHIQUE"
+            },
+            {
+                titre: "L'IA au quotidien : un coup de pouce indispensable",
+                date: "Septembre 2026",
+                url: "article-1.html",
+                tag: "IA"
             }
-        }
+        ];
+
+        const container = document.getElementById('archiveContainer');
+
+        // Le script crée les blocs tout seul comme un grand
+        tousLesArticles.forEach(article => {
+            const item = document.createElement('div');
+            item.className = 'archive-item';
+            item.innerHTML = `
+                <div class="archive-info">
+                    <span style="font-size:0.75rem; color:var(--neon-cyan); font-family:'Orbitron';">${article.tag}</span>
+                    <h3><a href="${article.url}">${article.titre}</a></h3>
+                </div>
+                <div class="archive-date">${article.date}</div>
+            `;
+            container.appendChild(item);
+        });
     </script>
+
 </body>
 </html>
