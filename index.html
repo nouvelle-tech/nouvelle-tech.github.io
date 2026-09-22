@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nouvelle Tech IA — Tech & Future</title>
+    
+    <!-- SEO & Métadonnées -->
+    <title>Nouvelle Tech IA — Actualités & Décryptage du Futur</title>
+    <meta name="description" content="Décryptage passionné sur l'intelligence artificielle, la robotique, la domotique, la santé et la mobilité du futur. Restez à l'affût des innovations.">
+    <meta name="keywords" content="IA, Intelligence Artificielle, Robotique, Domotique, Santé du Futur, Mobilité, Tech, Innovation">
+    <meta name="author" content="Nouvelle Tech IA">
+
+    <!-- Open Graph (Réseaux Sociaux) -->
+    <meta property="og:title" content="Nouvelle Tech IA — Tech & Future">
+    <meta property="og:description" content="Actualités, avis et décryptage sur l'IA, la domotique et les technologies de demain.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nouvelle-tech.github.io/index.html">
+    <meta property="og:image" content="image23.png">
+
+    <!-- Polices Google -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-deep: #030712;
@@ -384,17 +399,17 @@
     <header>
         <!-- MENU BURGER EN HAUT À GAUCHE -->
         <div class="menu-container">
-            <div class="burger-btn" onclick="toggleMenu()" title="Menu">
+            <div class="burger-btn" id="burgerBtn" title="Menu">
                 <div class="burger-line"></div>
                 <div class="burger-line"></div>
                 <div class="burger-line"></div>
             </div>
-            <div class="menu-dropdown" id="menuDropdown">
+            <nav class="menu-dropdown" id="menuDropdown">
                 <a href="index.html">Accueil</a>
                 <a href="categories.html">Catégories</a>
                 <a href="archives.html">Archives</a>
                 <a href="bio.html">À propos & Bio</a>
-            </div>
+            </nav>
         </div>
 
         <!-- Titre et Logo -->
@@ -407,7 +422,7 @@
 
         <!-- Bannière du haut -->
         <a href="index.html">
-            <img src="image23.png" alt="Bannière Tech" class="header-banner-center">
+            <img src="image23.png" alt="Bannière Tech Nouvelle Tech IA" class="header-banner-center">
         </a>
     </header>
 
@@ -424,7 +439,7 @@
         <!-- Section Articles -->
         <section>
             <h2 class="section-title">Dernières Publications</h2>
-            
+
             <div class="articles-grid">
                 <!-- Article 2 -->
                 <article class="article-card">
@@ -468,7 +483,7 @@
 
         <!-- Bannière de fin -->
         <div class="footer-banner-container">
-            <img src="image-fin.png" alt="Merci de votre visite" class="footer-banner-img">
+            <img src="image-fin.png" alt="Merci de votre visite" class="footer-banner-img" loading="lazy">
         </div>
     </div>
 
@@ -478,19 +493,21 @@
 
     <!-- Script JavaScript pour le menu Burger -->
     <script>
-        function toggleMenu() {
-            const dropdown = document.getElementById('menuDropdown');
-            dropdown.classList.toggle('active');
-        }
+        const burgerBtn = document.getElementById('burgerBtn');
+        const dropdown = document.getElementById('menuDropdown');
 
-        window.onclick = function(event) {
+        burgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+
+        window.addEventListener('click', (event) => {
             if (!event.target.closest('.menu-container')) {
-                const dropdown = document.getElementById('menuDropdown');
                 if (dropdown.classList.contains('active')) {
                     dropdown.classList.remove('active');
                 }
             }
-        }
+        });
     </script>
 
 </body>
