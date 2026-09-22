@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les JO des robots : quand la science-fiction devient réalité — Nouvelle Tech IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #030712;
+            --card-bg: rgba(10, 25, 47, 0.7);
+            --electric-blue: #0088ff;
+            --neon-cyan: #00f0ff;
+            --glow-blue: rgba(0, 136, 255, 0.4);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(0, 240, 255, 0.25);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 136, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
+                linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)),
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px);
+            z-index: -1;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px 10%;
+            border-bottom: 1px solid var(--border-glow);
+            backdrop-filter: blur(12px);
+            position: relative; 
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
+        }
+
+        .menu-container { position: absolute; top: 25px; left: 30px; }
+        .burger-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            width: 45px; height: 45px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+        .burger-btn:hover { border-color: var(--neon-cyan); box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
+        .burger-line { width: 22px; height: 2px; background-color: var(--neon-cyan); box-shadow: 0 0 5px var(--neon-cyan); }
+
+        .menu-dropdown {
+            position: absolute; top: 55px; left: 0;
+            background: rgba(3, 7, 18, 0.95);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px; width: 200px; padding: 10px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none; z-index: 1000;
+        }
+        .menu-dropdown.active { display: block; }
+        .menu-dropdown a {
+            display: block; padding: 10px 20px; color: var(--text-main); text-decoration: none;
+            font-family: 'Orbitron', sans-serif; font-size: 0.85rem; transition: all 0.2s ease;
+        }
+        .menu-dropdown a:hover { background: rgba(0, 136, 255, 0.2); color: var(--neon-cyan); padding-left: 25px; }
+
+        .logo-container { display: flex; align-items: center; justify-content: center; gap: 15px; text-decoration: none; }
+        .logo-text {
+            font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 800; color: #fff;
+            text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan); letter-spacing: 3px;
+        }
+
+        .main-container { max-width: 900px; margin: 0 auto; padding: 50px 20px; }
+
+        .article-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-left: 4px solid var(--neon-cyan);
+            padding: 40px; border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px); margin-bottom: 40px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            background: rgba(0, 136, 255, 0.15);
+            border: 1px solid var(--electric-blue);
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .article-content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .article-content h1 span {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--glow-blue);
+        }
+
+        .article-meta {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+            padding-bottom: 15px;
+        }
+
+        /* Style de l'image principale de l'article */
+        .article-image-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .article-image {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .article-content h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .article-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .quote-box {
+            background: rgba(0, 136, 255, 0.1);
+            border-left: 3px solid var(--neon-cyan);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        /* Encadré Source */
+        .source-box {
+            background: rgba(3, 7, 18, 0.8);
+            border: 1px dashed var(--neon-cyan);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .source-box p {
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-source {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            background: rgba(0, 136, 255, 0.15);
+            border: 1px solid var(--neon-cyan);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-source:hover {
+            background: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            color: #fff;
+        }
+
+        .back-home { text-align: center; margin-top: 40px; }
+        .btn-social {
+            display: inline-flex; align-items: center; gap: 10px;
+            font-family: 'Orbitron', sans-serif; font-size: 0.95rem; font-weight: 600;
+            color: var(--neon-cyan); background: var(--card-bg); border: 1px solid var(--neon-cyan);
+            padding: 12px 24px; border-radius: 8px; text-decoration: none;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); transition: all 0.3s ease;
+        }
+        .btn-social:hover {
+            background: rgba(0, 240, 255, 0.15); box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+            transform: translateY(-3px); color: #fff;
+        }
+
+        .footer-banner-container { display: flex; justify-content: center; margin-top: 60px; margin-bottom: 20px; }
+        .footer-banner-img { width: 100%; max-width: 800px; height: auto; border-radius: 12px; border: 1px solid var(--border-glow); box-shadow: 0 0 25px rgba(0, 240, 255, 0.2); }
+
+        footer { text-align: center; padding: 30px 0; border-top: 1px solid rgba(0, 240, 255, 0.1); color: var(--text-muted); font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="menu-container">
+            <div class="burger-btn" onclick="toggleMenu()" title="Menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="index.html">Accueil</a>
+                <a href="categories.html">Catégories</a>
+                <a href="archives.html">Archives</a>
+                <a href="bio.html">À propos & Bio</a>
+            </div>
+        </div>
+
+        <a href="index.html" class="logo-container">
+            <span class="logo-text">NOUVELLE TECH IA</span>
+        </a>
+    </header>
+
+    <div class="main-container">
+        <article class="article-content">
+            <span class="tag">ROBOTIQUE & FUTUR</span>
+            <h1>Les JO des robots : quand la science-fiction devient <span>notre réalité</span></h1>
+            <div class="article-meta">Publié le 22 septembre 2026 — Par l'auteur</div>
+
+            <!-- IMAGE PRINCIPALE AJOUTÉE ICI -->
+            <div class="article-image-container">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.Rj1k61XxU2TPyWfpeUvLpgHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Robot humanoïde des World Humanoid Robot Games" class="article-image">
+            </div>
+
+            <p>
+                Si j'ai eu envie de publier cet article aujourd'hui, c'est tout simplement parce que je suis profondément impressionné par là où la technologie est arrivée et par la vitesse à laquelle elle évolue. 
+            </p>
+
+            <p>
+                Quand on repense aux robots d'autrefois — ceux qui faisaient péniblement trois pas en avant, manquaient de trébucher et arrivaient tout juste à serrer une main de manière ultra-rigide — et qu'on les compare à ce qu'on voit aujourd'hui, le fossé est immense. C'est tout bonnement sidérant : ils courent, ils sautent, ils enchaînent des performances athlétiques et battent des records à des vitesses affolantes. On croirait de véritables Jeux olympiques, mais réservés aux machines !
+            </p>
+
+            <div class="quote-box">
+                "Je suis à la fois fasciné par ces progrès, mais je dois avouer qu'il y a aussi une part d'inquiétude : qu'est-ce que ces robots seront capables de faire dans 10 ou 20 ans ? Vont-ils vraiment finir par ressembler à des humains au point de faire basculer nos films de science-fiction dans le monde réel ?"
+            </div>
+
+            <h2>L'IA et les robots : l'importance cruciale du contrôle</h2>
+            <p>
+                Certains spécialistes l'affirment : l'intelligence artificielle peut représenter un danger pour l'humain. Je ne suis pas forcément d'accord avec l'idée d'un danger absolu et incontrôlable, mais une chose est sûre : l'IA doit être sous contrôle strict. Sans quoi, elle peut devenir un risque par simple manque de connaissances, de maîtrise ou de protocoles adéquats. C'est un point sur lequel nous devons rester extrêmement vigilants.
+            </p>
+
+            <p>
+                Le monde est en pleine mutation, et l'avenir s'écrit sous nos yeux.
+            </p>
+
+            <!-- ENCADRÉ SOURCE AVEC LE LIEN -->
+            <div class="source-box">
+                <p><strong>Découvrez les vidéos en action :</strong> Je vous invite à prendre le temps de regarder ces images incroyables partagées par la source originale pour vous rendre compte de l'évolution de ces robots.</p>
+                <a href="https://share.google/puwHCznYPPgKdrk6n" target="_blank" class="btn-source">
+                    <span>Voir la source & les vidéos</span>
+                    &rarr;
+                </a>
+            </div>
+        </article>
+
+        <div class="back-home">
+            <a href="index.html" class="btn-social">&larr; Retour à l'accueil</a>
+        </div>
+
+        <div class="footer-banner-container">
+            <img src="image-fin.png" alt="Merci de votre visite" class="footer-banner-img">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nouvelle tech IA — Propulsion Blue-Tech & GitHub Pages</p>
+    </footer>
+
+    <script>
+        function toggleMenu() { document.getElementById('menuDropdown').classList.toggle('active'); }
+        window.onclick = function(event) {
+            if (!event.target.closest('.menu-container')) {
+                const dropdown = document.getElementById('menuDropdown');
+                if (dropdown.classList.contains('active')) { dropdown.classList.remove('active'); }
+            }
+        }
+    </script>
+</body>
+</html>
