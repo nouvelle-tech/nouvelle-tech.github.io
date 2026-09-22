@@ -3,321 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos & Bio — Nouvelle Tech IA</title>
+    <title>Bio — Nouvelle Tech IA</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-deep: #030712;
             --card-bg: rgba(10, 25, 47, 0.7);
-            --electric-blue: #0088ff;
             --neon-cyan: #00f0ff;
-            --glow-blue: rgba(0, 136, 255, 0.4);
+            --electric-blue: #0088ff;
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
             --border-glow: rgba(0, 240, 255, 0.25);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
             background-color: var(--bg-deep);
             color: var(--text-main);
             font-family: 'Rajdhani', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* Arrière-plan dynamique identique */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(0, 136, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
-                linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)),
-                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px),
-                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px);
-            z-index: -1;
-        }
-
-        header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            padding: 30px 10%;
-            border-bottom: 1px solid var(--border-glow);
-            backdrop-filter: blur(12px);
-            position: relative; 
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
-        }
-
-        /* MENU BURGER */
-        .menu-container {
-            position: absolute;
-            top: 25px;
-            left: 30px;
-        }
-
-        .burger-btn {
-            background: var(--card-bg);
-            border: 1px solid var(--border-glow);
-            border-radius: 8px;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
-            transition: all 0.3s ease;
-        }
-
-        .burger-btn:hover {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
-        }
-
-        .burger-line {
-            width: 22px;
-            height: 2px;
-            background-color: var(--neon-cyan);
-            box-shadow: 0 0 5px var(--neon-cyan);
-            transition: 0.3s;
-        }
-
-        .menu-dropdown {
-            position: absolute;
-            top: 55px;
-            left: 0;
-            background: rgba(3, 7, 18, 0.95);
-            border: 1px solid var(--border-glow);
-            border-radius: 8px;
-            width: 200px;
-            padding: 10px 0;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            display: none;
-            z-index: 1000;
-        }
-
-        .menu-dropdown.active {
-            display: block;
-        }
-
-        .menu-dropdown a {
-            display: block;
-            padding: 10px 20px;
-            color: var(--text-main);
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-        }
-
-        .menu-dropdown a:hover {
-            background: rgba(0, 136, 255, 0.2);
-            color: var(--neon-cyan);
-            padding-left: 25px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-
-        .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: #fff;
-            text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan);
-            letter-spacing: 3px;
-        }
-
-        .main-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        /* Bloc Bio */
-        .bio-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-glow);
-            border-left: 4px solid var(--neon-cyan);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            margin-bottom: 40px;
-        }
-
-        .bio-card h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        .bio-card h1 span {
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--glow-blue);
-        }
-
-        .bio-card p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        /* Liens Réseaux / Pro */
-        .social-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .btn-social {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--neon-cyan);
-            background: var(--card-bg);
-            border: 1px solid var(--neon-cyan);
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .btn-social:hover {
-            background: rgba(0, 240, 255, 0.15);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
-            transform: translateY(-3px);
-            color: #fff;
-        }
-
-        /* Bouton Retour Accueil */
-        .back-home {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .footer-banner-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 60px;
-            margin-bottom: 20px;
-        }
-
-        .footer-banner-img {
-            width: 100%;
+            padding: 40px 20px;
             max-width: 800px;
-            height: auto;
-            border-radius: 12px;
-            border: 1px solid var(--border-glow);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
+            margin: 0 auto;
+            line-height: 1.6;
         }
-
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid rgba(0, 240, 255, 0.1);
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        h1, h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0,240,255,0.3);
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        h2 {
+            margin-top: 30px;
+            font-size: 1.3rem;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+        .about-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,240,255,0.1);
+        }
+        .linkedin-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-cyan));
+            color: #030712;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(0,240,255,0.3);
+        }
+        .linkedin-btn:hover {
+            box-shadow: 0 0 20px var(--neon-cyan);
+            transform: translateY(-2px);
+        }
+        .back-home {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="menu-container">
-            <div class="burger-btn" onclick="toggleMenu()" title="Menu">
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-            </div>
-            <div class="menu-dropdown" id="menuDropdown">
-                <a href="index.html">Accueil</a>
-                <a href="categories.html">Catégories</a>
-                <a href="archives.html">Archives</a>
-                <a href="bio.html">À propos & Bio</a>
-            </div>
-        </div>
+    <div class="about-card">
+        <h1>Bio & Parcours</h1>
+        
+        <p>
+            Bienvenue sur <strong>Nouvelle Tech IA</strong>. Derrière ce site se cache avant tout une passion de longue date pour le numérique et l'innovation. 
+        </p>
 
-        <a href="index.html" class="logo-container">
-            <span class="logo-text">NOUVELLE TECH IA</span>
-        </a>
-    </header>
+        <h2>Du premier site web à la renaissance</h2>
+        <p>
+            Formé en marketing il y a maintenant une quinzaine d'années, j'ai eu l'occasion de créer mon tout premier site web pendant mes études. À l'époque, l'intelligence artificielle telle qu'on la connait aujourd'hui n'existait pas encore. Après deux années enrichissantes, ce projet s'était arrêté, mais cette flamme pour la création et le web n'a jamais vraiment disparu. Aujourd'hui, je la fais renaître à travers ce site pour partager de nouveau cette fascination, en y injectant les technologies d'aujourd'hui : l'intelligence artificielle, la robotique et le futur en marche.
+        </p>
 
-    <div class="main-container">
-        <section class="bio-card">
-            <h1>À propos de <span>l'Auteur</span></h1>
-            <p>
-                Passionné par les technologies de demain, l'intelligence artificielle et l'impact du numérique sur notre quotidien, je partage à travers ce site mes décryptages, mes réflexions et mes découvertes.
-            </p>
-            <p>
-                Ce projet est né d'une volonté simple : rendre l'innovation accessible, humaine et compréhensible pour tous, tout en gardant un œil critique et constructif sur l'avenir.
-            </p>
+        <h2>Des passions ancrées dans le quotidien</h2>
+        <p>
+            Cette curiosité pour la tech se traduit aussi concrètement à la maison. Il y a quelques années, je me suis lancé dans l'aventure de l'automatisation et de la création d'une maison intelligente (domotique). Dans notre monde actuel, les évolutions vont très vite : nos smartphones haut de gamme et nos appareils deviennent de véritables petits studios de création. 
+        </p>
+        <p>
+            Grand passionné de photographie, j'utilise d'ailleurs les outils d'IA comme des assistants pour sublimer mes clichés, en cherchant toujours à obtenir le plus beau rendu possible tout en préservant un aspect totalement naturel. Dans mon temps libre, le gaming vient naturellement compléter cet univers technologique. Une passion de la tech qui se transmet d'ailleurs directement à mon fils, lui aussi très attiré par les nouvelles technologies et l'intelligence artificielle.
+        </p>
 
-            <div class="social-links">
-                <!-- Remplacez le '#' par le lien réel de votre profil LinkedIn -->
-                <a href="#" target="_blank" class="btn-social">
-                    <span>LinkedIn Professionnel</span>
-                    &rarr;
-                </a>
-                <!-- Vous pourrez ajouter d'autres liens ici si besoin -->
-            </div>
-        </section>
+        <h2>Retrouvons-nous</h2>
+        <p>
+            Ce site est un espace de partage, de réflexion et de découverte. Si vous souhaitez échanger professionnellement ou suivre mon parcours, vous pouvez me retrouver sur mon profil officiel :
+        </p>
 
-        <div class="back-home">
-            <a href="index.html" class="btn-social">
-                &larr; Retour à l'accueil
-            </a>
-        </div>
-
-        <div class="footer-banner-container">
-            <img src="image-fin.png" alt="Merci de votre visite" class="footer-banner-img">
-        </div>
+        <!-- Remplace le # par le lien direct de ton vrai profil LinkedIn -->
+        <a href="https://www.linkedin.com/in/jhelderweirt?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="linkedin-btn">Mon Profil LinkedIn Professionnel</a>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Nouvelle tech IA — Propulsion Blue-Tech & GitHub Pages</p>
-    </footer>
+    <div>
+        <a href="index.html" class="back-home">&larr; Retour à l'accueil</a>
+    </div>
 
-    <script>
-        function toggleMenu() {
-            const dropdown = document.getElementById('menuDropdown');
-            dropdown.classList.toggle('active');
-        }
-
-        window.onclick = function(event) {
-            if (!event.target.closest('.menu-container')) {
-                const dropdown = document.getElementById('menuDropdown');
-                if (dropdown.classList.contains('active')) {
-                    dropdown.classList.remove('active');
-                }
-            }
-        }
-    </script>
 </body>
 </html>
