@@ -43,7 +43,6 @@
             padding-bottom: 10px;
         }
 
-        /* Conteneur des cartes d'articles générées automatiquement */
         .latest-grid {
             display: grid;
             gap: 20px;
@@ -117,7 +116,6 @@
     <main>
         <h2 class="section-title">Dernières Publications</h2>
         
-        <!-- C'est ici que le JavaScript va injecter tes articles récents automatiquement -->
         <div class="latest-grid" id="homeArticlesGrid"></div>
 
         <div class="archives-link-container">
@@ -125,45 +123,13 @@
         </div>
     </main>
 
+    <!-- On charge le fichier central des articles -->
+    <script src="articles.js"></script>
     <script>
-        // LA LISTE CENTRALE DE TES ARTICLES
-        // (Tu ajoutes simplement ton nouvel article tout en haut de cette liste à chaque fois)
-        const listeGlobaleArticles = [
-            {
-                titre: "La course à l'autonomie des smartphones : quand l'IA devient agentique",
-                date: "30 Septembre 2026",
-                url: "article-4.html",
-                tag: "SMARTPHONES & IA",
-                extrait: "L'émergence de l'IA agentique transforme notre smartphone en véritable assistant autonome capable d'agir en arrière-plan."
-            },
-            {
-                titre: "Titre de ton Article 3",
-                date: "Date de l'article 3",
-                url: "article-3.html",
-                tag: "AUTRE TAG",
-                extrait: "Court résumé ou aperçu de l'article 3..."
-            },
-            {
-                titre: "Titre de ton Article 2",
-                date: "Date de l'article 2",
-                url: "article-2.html",
-                tag: "AUTRE TAG",
-                extrait: "Court résumé ou aperçu de l'article 2..."
-            },
-            {
-                titre: "Titre de ton Article 1",
-                date: "Date de l'article 1",
-                url: "article-1.html",
-                tag: "PREMIER TAG",
-                extrait: "Court résumé ou aperçu de l'article 1..."
-            }
-        ];
-
-        // Injection automatique des 3 articles les plus récents sur la page d'accueil
         const gridContainer = document.getElementById('homeArticlesGrid');
         
-        // .slice(0, 3) permet d'afficher uniquement les 3 premiers articles de la liste sur l'accueil
-        listeGlobaleArticles.slice(0, 3).forEach(art => {
+        // Affiche automatiquement uniquement les 3 plus récents sur l'accueil
+        tousLesArticles.slice(0, 3).forEach(art => {
             const card = document.createElement('div');
             card.className = 'article-preview-card';
             card.innerHTML = `
