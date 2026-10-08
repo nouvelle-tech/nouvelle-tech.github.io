@@ -37,7 +37,6 @@
         }
         .subtitle { color: var(--text-muted); font-size: 1.1rem; }
         
-        /* Conteneur des archives générées automatiquement */
         .archives-grid {
             display: grid;
             gap: 20px;
@@ -109,7 +108,6 @@
     </header>
 
     <main>
-        <!-- C'est ici que le JavaScript va injecter TOUS tes articles automatiquement -->
         <div class="archives-grid" id="archivesContainer"></div>
 
         <div class="home-link-container">
@@ -117,43 +115,13 @@
         </div>
     </main>
 
+    <!-- On charge le fichier central des articles -->
+    <script src="articles.js"></script>
     <script>
-        // LA MÊME LISTE CENTRALE (Idéalement, on y retrouve tous les articles du site du plus récent au plus ancien)
-        const listeGlobaleArticles = [
-            {
-                titre: "La course à l'autonomie des smartphones : quand l'IA devient agentique",
-                date: "30 Septembre 2026",
-                url: "article-4.html",
-                tag: "SMARTPHONES & IA",
-                extrait: "L'émergence de l'IA agentique transforme notre smartphone en véritable assistant autonome capable d'agir en arrière-plan."
-            },
-            {
-                titre: "Titre de ton Article 3",
-                date: "Date de l'article 3",
-                url: "article-3.html",
-                tag: "AUTRE TAG",
-                extrait: "Court résumé ou aperçu de l'article 3..."
-            },
-            {
-                titre: "Titre de ton Article 2",
-                date: "Date de l'article 2",
-                url: "article-2.html",
-                tag: "AUTRE TAG",
-                extrait: "Court résumé ou aperçu de l'article 2..."
-            },
-            {
-                titre: "Titre de ton Article 1",
-                date: "Date de l'article 1",
-                url: "article-1.html",
-                tag: "PREMIER TAG",
-                extrait: "Court résumé ou aperçu de l'article 1..."
-            }
-        ];
-
-        // Injection automatique de TOUS les articles dans la page d'archives
         const archivesContainer = document.getElementById('archivesContainer');
         
-        listeGlobaleArticles.forEach(art => {
+        // Affiche automatiquement TOUS les articles dans les archives
+        tousLesArticles.forEach(art => {
             const card = document.createElement('div');
             card.className = 'archive-card';
             card.innerHTML = `
