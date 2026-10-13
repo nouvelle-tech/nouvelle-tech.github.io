@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'IA dans nos appareils ménagers : gadget coûteux ou véritable investissement économique ? — Nouvelle Tech IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #030712;
+            --card-bg: rgba(10, 25, 47, 0.7);
+            --electric-blue: #0088ff;
+            --neon-cyan: #00f0ff;
+            --glow-blue: rgba(0, 136, 255, 0.4);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(0, 240, 255, 0.25);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Rajdhani', sans-serif; line-height: 1.7; min-height: 100vh; }
+        
+        header {
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;
+            padding: 30px 10%; border-bottom: 1px solid var(--border-glow); backdrop-filter: blur(12px); position: relative; z-index: 100;
+        }
+
+        .menu-container { position: absolute; top: 25px; left: 30px; }
+        .burger-btn {
+            background: var(--card-bg); border: 1px solid var(--border-glow); border-radius: 8px;
+            width: 45px; height: 45px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; cursor: pointer;
+        }
+        .burger-line { width: 22px; height: 2px; background-color: var(--neon-cyan); box-shadow: 0 0 5px var(--neon-cyan); }
+        .menu-dropdown {
+            position: absolute; top: 55px; left: 0; background: rgba(3, 7, 18, 0.95);
+            border: 1px solid var(--border-glow); border-radius: 8px; width: 200px; padding: 10px 0; display: none; z-index: 1000;
+        }
+        .menu-dropdown.active { display: block; }
+        .menu-dropdown a { display: block; padding: 10px 20px; color: var(--text-main); text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.85rem; }
+        .menu-dropdown a:hover { background: rgba(0, 136, 255, 0.2); color: var(--neon-cyan); }
+
+        .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo-text { font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 800; color: #fff; text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan); letter-spacing: 3px; }
+
+        .article-container { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
+        
+        .article-tag {
+            display: inline-block; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; color: var(--neon-cyan);
+            background: rgba(0, 136, 255, 0.15); border: 1px solid var(--electric-blue); padding: 4px 12px; border-radius: 4px; margin-bottom: 20px;
+        }
+
+        h1 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; color: #fff; margin-bottom: 15px; line-height: 1.3; }
+        .article-date { font-size: 0.9rem; color: var(--text-muted); font-family: 'Orbitron', sans-serif; margin-bottom: 30px; display: block; }
+
+        .article-image {
+            width: 100%; height: auto; max-height: 450px; object-fit: cover; border-radius: 8px;
+            border: 1px solid var(--border-glow); box-shadow: 0 0 20px rgba(0, 240, 255, 0.15); margin-bottom: 35px;
+        }
+
+        .article-content p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 25px; }
+        .article-content h2 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #fff; margin: 40px 0 15px; border-left: 3px solid var(--neon-cyan); padding-left: 15px; }
+        .article-content a { color: var(--neon-cyan); text-decoration: underline; }
+        .article-content a:hover { color: #fff; }
+
+        .quote-box {
+            background: var(--card-bg); border-left: 4px solid var(--neon-cyan); border: 1px solid var(--border-glow);
+            padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0; font-style: italic; color: #fff; font-size: 1.2rem; backdrop-filter: blur(6px);
+        }
+
+        .back-home { margin-top: 50px; text-align: center; }
+        .btn-social {
+            display: inline-flex; align-items: center; gap: 10px; font-family: 'Orbitron', sans-serif; font-size: 0.95rem; font-weight: 600;
+            color: var(--neon-cyan); background: var(--card-bg); border: 1px solid var(--neon-cyan); padding: 12px 24px; border-radius: 8px; text-decoration: none;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); transition: all 0.3s ease;
+        }
+        .btn-social:hover { background: rgba(0, 240, 255, 0.15); box-shadow: 0 0 25px rgba(0, 240, 255, 0.5); transform: translateY(-3px); color: #fff; }
+
+        footer { text-align: center; padding: 40px 0; border-top: 1px solid rgba(0, 240, 255, 0.1); color: var(--text-muted); margin-top: 60px; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="menu-container">
+            <div class="burger-btn" onclick="toggleMenu()" title="Menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="index.html">Accueil</a>
+                <a href="archives.html">Archives</a>
+                <a href="bio.html">À propos & Bio</a>
+            </div>
+        </div>
+        <a href="index.html" class="logo-container">
+            <span class="logo-text">NOUVELLE TECH IA</span>
+        </a>
+    </header>
+
+    <main class="article-container">
+        <span class="article-tag">DOMOTIQUE & IA</span>
+        <h1>L'IA dans nos appareils ménagers : gadget coûteux ou véritable investissement économique ?</h1>
+        <span class="article-date">13 Octobre 2026</span>
+
+        <!-- Image principale de l'article -->
+        <img src="image-5.jpg" alt="Électroménager et Intelligence Artificielle" class="article-image">
+
+        <div class="article-content">
+            <p>
+                Quand on entend parler d'intelligence artificielle, on pense tout de suite aux smartphones de dernière génération, aux chatbots ou aux générateurs d'images. Pourtant, sans faire de bruit, l'IA s'est glissée au cœur de nos foyers, directement dans nos appareils ménagers.
+            </p>
+
+            <p>
+                Comme le souligne un dossier très éclairant publié sur <a href="https://leclaireur.fnac.com/article/476139-electromenager-quest-ce-que-lia-peut-vraiment-faire-pour-vous/" target="_blank" rel="noopener noreferrer">L'Éclaireur Fnac</a>, cette technologie ne cherche pas à faire de la simple démonstration technique, mais à nous simplifier la vie en rendant nos équipements plus autonomes et surtout plus économes.
+            </p>
+
+            <h2>La fin des cuissons ratées et du gaspillage</h2>
+            <p>
+                En cuisine, les choses bougent vite. Les nouveaux fours intègrent aujourd'hui de minuscules caméras dopées à la vision par ordinateur : l'appareil reconnaît le plat qu'on y dépose (un poulet, une pizza ou une tarte) et règle de lui-même la température et le temps exact de cuisson pour éviter de chauffer inutilement. Dans la même logique, les réfrigérateurs intelligents scannent nos produits pour nous suggérer des recettes et nous alerter avant la date de péremption.
+            </p>
+
+            <h2>Des lavages réglés au millilitre et à la goutte près</h2>
+            <p>
+                Du côté de la buanderie et de la vaisselle, l'IA va bien plus loin que la simple pesée automatique. Grâce à des capteurs qui évaluent la saleté et l'opacité de l'eau, nos lave-linge et lave-vaisselle ajustent au millilitre près la dose de lessive ou de produit, tout en chauffant strictement la quantité d'eau nécessaire.
+            </p>
+
+            <h2>Mon regard : une réelle aide financière au quotidien</h2>
+            <p>
+                On ne va pas se mentir : à l'achat, un équipement doté de ces puces et capteurs intelligents représente un budget plus élevé. Mais quand on prend un peu de recul, l'équation change complètement.
+            </p>
+
+            <p>
+                Avec l'envolée des prix de l'électricité, du gaz, de l'eau et de l'alimentation en cette année 2026, cette dépense initiale prend une tout autre valeur. Entre les économies de produit nettoyant, la fin du gaspillage de nourriture et la réduction des factures d'énergie, l'IA n'est plus un simple gadget ou un produit de luxe réservé à quelques passionnés. Elle devient une véritable alliée du budget familial.
+            </p>
+
+            <div class="quote-box">
+                "Investir dans une technologie qui régule d'elle-même sa consommation pour nous préserver des mauvaises surprises financières en fin de mois, ce n'est plus un luxe futile : c'est un choix malin pour protéger son pouvoir d'achat."
+            </div>
+
+            <p>
+                Une évolution très concrète de nos foyers, à suivre de près sur <strong>NOUVELLE TECH IA</strong> !
+            </p>
+        </div>
+
+        <div class="back-home">
+            <a href="index.html" class="btn-social">&larr; Retour à l'accueil</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nouvelle tech IA — Propulsion Blue-Tech & GitHub Pages</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('menuDropdown').classList.toggle('active');
+        }
+        window.onclick = function(event) {
+            if (!event.target.closest('.menu-container')) {
+                const dropdown = document.getElementById('menuDropdown');
+                if (dropdown.classList.contains('active')) { dropdown.classList.remove('active'); }
+            }
+        }
+    </script>
+</body>
+</html>
