@@ -1,4 +1,12 @@
 const tousLesArticles = [
+    
+    {
+    titre: "L'IA dans nos appareils ménagers : gadget coûteux ou véritable investissement économique ?",
+    date: "13 Octobre 2026",
+    url: "article-5.html",
+    tag: "DOMOTIQUE & IA",
+    extrait: "Fours intelligents, lave-linge économes et frigos anti-gaspillage : si l'IA représente un coût à l'achat, elle devient un allié clé face à la hausse des coûts de l'énergie."
+},
     {
         titre: "La course à l'autonomie des smartphones : quand l'IA devient agentique",
         date: "30 Septembre 2026",
