@@ -1,5 +1,11 @@
 const tousLesArticles = [
-    
+    {
+    id: 6,
+    titre: "Quand la lumière remplace le courant : le salut énergétique de l'IA",
+    tag: "Innovation & Énergie",
+    extrait: "L'IA consomme trop d'électricité. Découvrez comment les puces photoniques utilisent la lumière pour effectuer des calculs ultra-rapides sans surchauffer nos réseaux électriques.",
+    url: "article-6.html"
+},
     {
     titre: "L'IA dans nos appareils ménagers : gadget coûteux ou véritable investissement économique ?",
     date: "13 Octobre 2026",
