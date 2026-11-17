@@ -1,5 +1,12 @@
 const tousLesArticles = [
     {
+    id: 7,
+    titre: "Obsolescence et droit à la réparation : vers une fin programmée du gaspillage technologique",
+    tag: "Durabilité & Régulation",
+    extrait: "Face aux verrous logiciels et aux pratiques des fabricants, l'obligation de réparer à prix corrects s'impose pour protéger le consommateur et la planète.",
+    url: "article-7.html"
+},
+    {
     id: 6,
     titre: "Quand la lumière remplace le courant : le salut énergétique de l'IA",
     tag: "Innovation & Énergie",
