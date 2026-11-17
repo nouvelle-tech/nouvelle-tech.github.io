@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsolescence et droit à la réparation : vers une fin programmée du gaspillage technologique — Nouvelle Tech IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #030712;
+            --card-bg: rgba(10, 25, 47, 0.7);
+            --electric-blue: #0088ff;
+            --neon-cyan: #00f0ff;
+            --glow-blue: rgba(0, 136, 255, 0.4);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(0, 240, 255, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 136, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
+                linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)),
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px);
+            z-index: -1;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px 10%;
+            border-bottom: 1px solid var(--border-glow);
+            backdrop-filter: blur(12px);
+            position: relative; 
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
+        }
+
+        .menu-container {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+        }
+
+        .burger-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .burger-btn:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        .burger-line {
+            width: 22px;
+            height: 2px;
+            background-color: var(--neon-cyan);
+            box-shadow: 0 0 5px var(--neon-cyan);
+            transition: 0.3s;
+        }
+
+        .menu-dropdown {
+            position: absolute;
+            top: 55px;
+            left: 0;
+            background: rgba(3, 7, 18, 0.95);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            width: 200px;
+            padding: 10px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            z-index: 1000;
+        }
+
+        .menu-dropdown.active {
+            display: block;
+        }
+
+        .menu-dropdown a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .menu-dropdown a:hover {
+            background: rgba(0, 136, 255, 0.2);
+            color: var(--neon-cyan);
+            padding-left: 25px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            filter: drop-shadow(0 0 10px var(--neon-cyan));
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan);
+            letter-spacing: 3px;
+        }
+
+        .header-banner-center {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .article-card-full {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            margin-bottom: 40px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            background: rgba(0, 136, 255, 0.15);
+            border: 1px solid var(--electric-blue);
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .article-image-container {
+            width: 100%;
+            margin: 25px 0 35px 0;
+            text-align: center;
+        }
+
+        .article-img {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .article-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+            line-height: 1.8;
+        }
+
+        .article-content strong {
+            color: var(--text-main);
+        }
+
+        .article-content a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--neon-cyan);
+            transition: all 0.2s ease;
+        }
+
+        .article-content a:hover {
+            color: #fff;
+            border-bottom-style: solid;
+            text-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        .opinion-box {
+            background: rgba(0, 136, 255, 0.08);
+            border-left: 4px solid var(--neon-cyan);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 35px 0;
+        }
+
+        .opinion-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn-nav {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            background: var(--card-bg);
+            border: 1px solid var(--neon-cyan);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background: rgba(0, 240, 255, 0.15);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(0, 240, 255, 0.1);
+            color: var(--text-muted);
+            margin-top: 60px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="menu-container">
+            <div class="burger-btn" onclick="toggleMenu()" title="Menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="index.html">Accueil</a>
+                <a href="categories.html">Catégories</a>
+                <a href="archives.html">Archives</a>
+                <a href="bio.html">À propos & Bio</a>
+            </div>
+        </div>
+
+        <a href="index.html" class="logo-container">
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span class="logo-text">NOUVELLE TECH IA</span>
+        </a>
+
+        <a href="index.html">
+            <img src="image23.png" alt="Bannière Tech" class="header-banner-center">
+        </a>
+    </header>
+
+    <div class="main-container">
+        <article class="article-card-full">
+            <span class="tag">Durabilité & Régulation</span>
+            <h1>Obsolescence et droit à la réparation : vers une fin programmée du gaspillage technologique</h1>
+
+            <div class="article-image-container">
+                <img src="image-article-7.png" alt="Réparation de matériel technologique et composants" class="article-img">
+                <p class="image-caption">La lutte contre l'obsolescence logicielle et matérielle devient enfin une obligation légale pour les fabricants.</p>
+            </div>
+
+            <div class="article-content">
+                <p>Pendant des années, le modèle économique de la tech a reposé sur une équation simple : vendre toujours plus, renouveler plus vite, et pousser le consommateur à remplacer son équipement au moindre dysfonctionnement. Entre des batteries soudées, des pièces d'ordinateur ou de smartphones bloquées par des verrous logiciels et des coûts de réparation dissuasifs, jeter est longtemps the seule option réaliste. Mais la pression s'intensifie, à l'image des récents développements judiciaires médiatisés comme <a href="https://www.halteobsolescence.org/annonce-proces-apple-2027/" target="_blank">cette action menée par l'association HOP contre les pratiques d'obsolescence programmée</a>.</p>
+                
+                <p>Au-delà d'un cas particulier, c'est toute l'industrie qui est visée par une prise de conscience nécessaire. Les verrous numériques, que l'on appelle la sérialisation, empêchent souvent de réparer un appareil avec des composants fonctionnels sous prétexte d'exclusivité constructeur. Heureusement, le cadre réglementaire change radicalement : les exigences européennes et les nouvelles obligations imposent aux marques de garantir la réparabilité des produits à des prix corrects, bien au-delà de la garantie légale de deux ans.</p>
+                
+                <p>C'est une excellente nouvelle à double titre. D'une part pour le portefeuille du consommateur, qui n'est plus pris en otage et forcé de racheter un appareil neuf pour une simple pièce usée. D'autre part pour la planète, car l'urgence climatique nous impose d'arrêter la surproduction massive d'appareils électroniques qui s'entassent dans les décharges. Bien sûr, le défi reste entier face à la tentation permanente du "toujours plus récent" chez certains acheteurs, mais l'obligation légale contraint enfin les fabricants à revoir leur copie.</p>
+                
+                <div class="opinion-box">
+                    <h3>Mon avis personnel</h3>
+                    <p>Mettre les fabricants face à leurs responsabilités est une étape indispensable. Quelle que soit la marque, l'obligation de rendre les produits réparables à des prix corrects et sur le long terme est une victoire pour le bon sens. Pour ceux d'entre nous qui souhaitent agir de manière responsable pour les générations futures, voir les sociétés technologiques être enfin forcées de proposer de vraies solutions durables est le seul chemin viable. La technologie de demain doit servir à préserver nos ressources, pas à accélérer le gaspillage.</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="archives.html" class="btn-nav">&larr; Voir tous les articles</a>
+                <a href="index.html" class="btn-nav">Retour à l'accueil &rarr;</a>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nouvelle tech IA — Propulsion Blue-Tech & GitHub Pages</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById('menuDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.closest('.menu-container')) {
+                const dropdown = document.getElementById('menuDropdown');
+                if (dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
