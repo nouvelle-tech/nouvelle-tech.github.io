@@ -1,5 +1,11 @@
 const tousLesArticles = [
     {
+        id: 8,
+        titre: "IA dans les jeux vidéo et protection des mineurs : pourquoi la vigilance des parents reste indispensable",
+        tag: "Jeux Vidéo & Sécurité",
+        extrait: "Entre le délai de 24 mois du futur Kids Act européen et les limites de la vérification d'âge par IA, la vigilance parentale reste essentielle face à l'accès des 12-14 ans à des jeux adultes comme GTA VI.",
+        url: "article-8.html"
+    },{
     id: 7,
     titre: "Obsolescence et droit à la réparation : vers une fin programmée du gaspillage technologique",
     tag: "Durabilité & Régulation",
