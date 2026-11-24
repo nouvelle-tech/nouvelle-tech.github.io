@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA dans les jeux vidéo et protection des mineurs : pourquoi la vigilance des parents reste indispensable — Nouvelle Tech IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #030712;
+            --card-bg: rgba(10, 25, 47, 0.7);
+            --electric-blue: #0088ff;
+            --neon-cyan: #00f0ff;
+            --glow-blue: rgba(0, 136, 255, 0.4);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(0, 240, 255, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 136, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
+                linear-gradient(rgba(3, 7, 18, 0.85), rgba(3, 7, 18, 0.85)),
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(0, 240, 255, 0.04) 50px);
+            z-index: -1;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px 10%;
+            border-bottom: 1px solid var(--border-glow);
+            backdrop-filter: blur(12px);
+            position: relative; 
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 136, 255, 0.15);
+        }
+
+        .menu-container {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+        }
+
+        .burger-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .burger-btn:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        .burger-line {
+            width: 22px;
+            height: 2px;
+            background-color: var(--neon-cyan);
+            box-shadow: 0 0 5px var(--neon-cyan);
+            transition: 0.3s;
+        }
+
+        .menu-dropdown {
+            position: absolute;
+            top: 55px;
+            left: 0;
+            background: rgba(3, 7, 18, 0.95);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            width: 200px;
+            padding: 10px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            z-index: 1000;
+        }
+
+        .menu-dropdown.active {
+            display: block;
+        }
+
+        .menu-dropdown a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .menu-dropdown a:hover {
+            background: rgba(0, 136, 255, 0.2);
+            color: var(--neon-cyan);
+            padding-left: 25px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            filter: drop-shadow(0 0 10px var(--neon-cyan));
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 12px var(--electric-blue), 0 0 25px var(--neon-cyan);
+            letter-spacing: 3px;
+        }
+
+        .header-banner-center {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .article-card-full {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            margin-bottom: 40px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            background: rgba(0, 136, 255, 0.15);
+            border: 1px solid var(--electric-blue);
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .article-image-container {
+            width: 100%;
+            margin: 25px 0 35px 0;
+            text-align: center;
+        }
+
+        .article-img {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .article-content p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+            line-height: 1.8;
+        }
+
+        .article-content strong {
+            color: var(--text-main);
+        }
+
+        .article-content a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--neon-cyan);
+            transition: all 0.2s ease;
+        }
+
+        .article-content a:hover {
+            color: #fff;
+            border-bottom-style: solid;
+            text-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        .opinion-box {
+            background: rgba(0, 136, 255, 0.08);
+            border-left: 4px solid var(--neon-cyan);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 35px 0;
+        }
+
+        .opinion-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn-nav {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            background: var(--card-bg);
+            border: 1px solid var(--neon-cyan);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background: rgba(0, 240, 255, 0.15);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(0, 240, 255, 0.1);
+            color: var(--text-muted);
+            margin-top: 60px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="menu-container">
+            <div class="burger-btn" onclick="toggleMenu()" title="Menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="index.html">Accueil</a>
+                <a href="categories.html">Catégories</a>
+                <a href="archives.html">Archives</a>
+                <a href="bio.html">À propos & Bio</a>
+            </div>
+        </div>
+
+        <a href="index.html" class="logo-container">
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span class="logo-text">NOUVELLE TECH IA</span>
+        </a>
+
+        <a href="index.html">
+            <img src="image23.png" alt="Bannière Tech" class="header-banner-center">
+        </a>
+    </header>
+
+    <div class="main-container">
+        <article class="article-card-full">
+            <span class="tag">Jeux Vidéo & Sécurité</span>
+            <h1>IA dans les jeux vidéo et protection des mineurs : pourquoi la vigilance des parents reste indispensable</h1>
+
+            <div class="article-image-container">
+                <img src="image-article-8.png" alt="Console de jeu moderne, manette et réseaux d'intelligence artificielle" class="article-img">
+                <p class="image-caption">Entre délais législatifs et limites des filtres par intelligence artificielle, la protection des jeunes joueurs repose avant tout sur la vigilance des parents.</p>
+            </div>
+
+            <div class="article-content">
+                <p>L'intelligence artificielle occupe une place croissante dans les jeux vidéo, que ce soit pour rendre les univers virtuels plus immersifs, intégrer des compagnons conversationnels ou automatiser la vérification de l'âge et la modération des échanges. Face aux dérives observées sur les plateformes fréquentées par les jeunes, l'Europe prépare un encadrement spécifique avec le projet <strong>Kids Act</strong>, comme le détaille <a href="https://pasqualepillitteri.it/fr/news/29020/kids-act-jeux-video-bonus-connexion-industrie-freine" target="_blank">cet article consacré au Kids Act appliqué aux jeux vidéo et aux fonctions d'IA</a>. Le texte vise notamment à encadrer les chatbots intégrés et à renforcer le contrôle réel de l'âge, alors que près de 46 % des mineurs parviennent aujourd'hui à contourner les barrières existantes.</p>
+                
+                <p>Sur le terrain, certaines plateformes n'ont pas attendu cette réglementation pour réagir. Sous la pression des plaintes, des procès et des amendes liées à la sécurité des enfants, un acteur majeur comme <strong>Roblox</strong> a déjà durci ses règles : sans vérification d'âge — qui passe notamment par l'estimation faciale par intelligence artificielle — le compte est considéré comme mineur par défaut avec des restrictions sur les discussions. Mais ce calendrier législatif rappelle une réalité essentielle : le Kids Act prévoit un délai pouvant aller jusqu'à <strong>24 mois</strong> avant son entrée en vigueur complète. Autrement dit, cette future loi ne constitue pas encore une protection immédiate au quotidien.</p>
+                
+                <p>De plus, même lorsque des outils d'intelligence artificielle sont déployés pour vérifier l'âge ou filtrer les contenus, ils ne sont jamais totalement sans faille. Les contournements techniques existent, les erreurs d'estimation aussi, et des enfants ou jeunes adolescents continuent malgré tout d'accéder à des espaces et à des contenus qui ne sont absolument pas adaptés à leur niveau de maturité.</p>
+                
+                <div class="opinion-box">
+                    <h3>Mon avis personnel</h3>
+                    <p>Il ne faut pas attendre qu'une loi européenne entre en vigueur dans deux ans ni compter aveuglément sur l'intelligence artificielle pour protéger nos enfants à notre place. Aucun algorithme n'est infaillible, et la vigilance des parents reste la première barrière indispensable. Il suffit de regarder ce qu'il se passe dans le jeu vidéo aujourd'hui : combien de jeunes de 12 à 14 ans jouent déjà — ou cherchent à jouer — à un titre comme <strong>GTA VI</strong>, alors que ce jeu est strictement interdit aux moins de 18 ans ? Avec une IA qui rend les mondes virtuels toujours plus réalistes, laisser des adolescents accéder à des contenus aussi violents et adultes n'a rien d'anodin. Configurer le contrôle parental, couper le chat vocal avec des inconnus et faire respecter les limites d'âge reste avant tout une responsabilité d'adulte.</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="archives.html" class="btn-nav">&larr; Voir tous les articles</a>
+                <a href="index.html" class="btn-nav">Retour à l'accueil &rarr;</a>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nouvelle tech IA — Propulsion Blue-Tech & GitHub Pages</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const dropdown = document.getElementById('menuDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.closest('.menu-container')) {
+                const dropdown = document.getElementById('menuDropdown');
+                if (dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
